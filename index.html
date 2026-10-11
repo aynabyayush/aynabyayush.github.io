@@ -1,601 +1,546 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ayush Narayan — Cyber Systems & Algorithmic Architecture</title>
 
-  <!-- Favicon -->
-  <link rel="icon" type="image/png" href="logo.png" />
-  <link rel="apple-touch-icon" href="logo.png" />
+  <!-- SEO & Social Sharing -->
+  <title>Ayush Narayan | Developer Portfolio</title>
+  <meta name="title" content="Ayush Narayan | Developer Portfolio" />
+  <meta name="description" content="Portfolio of Ayush Narayan featuring FTPApp — high-performance Android FTP server, client, and sync utility." />
+  <meta name="author" content="Ayush Narayan" />
 
-  <!-- Fonts: Orbitron for Display/Headings, JetBrains Mono for Code, Plus Jakarta Sans for Body -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Orbitron:wght@500;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest"></script>
-
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            cyber: {
-              black: '#02040A',
-              navy: '#040914',
-              surface: '#0B162C',
-              surfaceAlt: '#0E1D33',
-              cyan: '#00F0FF',
-              cyanDim: '#00E5FF',
-              purple: '#9D00FF',
-              magenta: '#FF007F'
-            }
-          },
-          fontFamily: {
-            orbitron: ['"Orbitron"', 'sans-serif'],
-            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
-            mono: ['"JetBrains Mono"', 'monospace']
-          }
-        }
-      }
-    }
-  </script>
+  <!-- Google Fonts: Inter for the page, Orbitron strictly for FTPApp -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Orbitron:wght@500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
   <style>
+    /* ==========================================================
+       GLOBAL PAGE STYLING (Standard Clean Portfolio Base)
+       ========================================================== */
+    :root {
+      --bg-color: #0b0f19;
+      --card-bg: #151d30;
+      --card-border: #222f4c;
+      --text-main: #f8fafc;
+      --text-muted: #94a3b8;
+      --accent: #6366f1;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
     body {
-      background-color: #02040A;
-      color: #E2E8F0;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-      overflow-x: hidden;
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      padding-bottom: 4rem;
     }
 
-    .cyber-grid {
-      background-size: 36px 36px;
-      background-image:
-        linear-gradient(to right, rgba(0, 240, 255, 0.05) 1px, transparent 1px),
-        linear-gradient(to bottom, rgba(0, 240, 255, 0.05) 1px, transparent 1px);
+    .container {
+      max-width: 980px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
     }
 
-    .scanline {
-      background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.35) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.04), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.04));
-      background-size: 100% 3px, 4px 100%;
+    /* Standard Navigation */
+    header {
+      padding: 1.25rem 0;
+      border-bottom: 1px solid var(--card-border);
+      position: sticky;
+      top: 0;
+      background: rgba(11, 15, 25, 0.9);
+      backdrop-filter: blur(10px);
+      z-index: 50;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .logo {
+      font-weight: 800;
+      font-size: 1.2rem;
+      color: var(--text-main);
+      text-decoration: none;
+    }
+    .logo span {
+      color: var(--accent);
+    }
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+      align-items: center;
+    }
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover {
+      color: #fff;
     }
 
-    .cyber-glow-cyan {
-      box-shadow: 0 0 30px -5px rgba(0, 240, 255, 0.45);
+    /* Standard Hero Section */
+    .hero {
+      padding: 4.5rem 0 3rem;
+      text-align: center;
+    }
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.35rem 0.9rem;
+      background: rgba(99, 102, 241, 0.12);
+      border: 1px solid rgba(99, 102, 241, 0.3);
+      color: #a5b4fc;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 600;
+      margin-bottom: 1.2rem;
+    }
+    .status-badge span {
+      width: 7px;
+      height: 7px;
+      background: #10b981;
+      border-radius: 50%;
+      box-shadow: 0 0 8px #10b981;
+    }
+    .hero h1 {
+      font-size: clamp(2rem, 4.5vw, 3.2rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 1rem;
+    }
+    .hero h1 span {
+      color: var(--accent);
+    }
+    .hero p {
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+    }
+    .social-links {
+      display: flex;
+      justify-content: center;
+      gap: 1.25rem;
+      margin-top: 1.5rem;
+      font-size: 1.3rem;
+    }
+    .social-links a {
+      color: var(--text-muted);
+      transition: color 0.2s, transform 0.2s;
+    }
+    .social-links a:hover {
+      color: #fff;
+      transform: translateY(-2px);
     }
 
-    .cyber-glow-purple {
-      box-shadow: 0 0 35px -5px rgba(157, 0, 255, 0.4);
+    .section-title {
+      font-size: 2rem;
+      font-weight: 800;
+      text-align: center;
+      margin-bottom: 0.5rem;
+    }
+    .section-subtitle {
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 2.5rem;
     }
 
-    .text-gradient {
-      background: linear-gradient(135deg, #00F0FF 0%, #A8C7FA 50%, #9D00FF 100%);
+    /* ==========================================================
+       STRICTLY FTPAPP TILE: CYBER / HOLOGRAM / ORBITRON THEME
+       Palette derived from the FTPApp binary resources:
+       #00F0FF (Cyan), #9D00FF (Purple), #FF007F (Pink), #040914 (Dark BG)
+       ========================================================== */
+    .cyber-tile {
+      --ftp-cyan: #00F0FF;
+      --ftp-cyan-glow: rgba(0, 240, 255, 0.45);
+      --ftp-purple: #9D00FF;
+      --ftp-pink: #FF007F;
+      --ftp-dark-bg: #040914;
+      --ftp-card-surface: rgba(6, 11, 24, 0.88);
+      --ftp-border: rgba(0, 240, 255, 0.35);
+
+      font-family: 'Orbitron', monospace, sans-serif !important;
+      position: relative;
+      background: var(--ftp-card-surface);
+      border: 1px solid var(--ftp-border);
+      border-radius: 16px;
+      padding: 2.5rem;
+      overflow: hidden;
+      box-shadow: 0 0 35px rgba(0, 240, 255, 0.12), inset 0 0 20px rgba(157, 0, 255, 0.08);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    .cyber-tile:hover {
+      transform: translateY(-3px);
+      border-color: var(--ftp-cyan);
+      box-shadow: 0 0 50px rgba(0, 240, 255, 0.25), inset 0 0 25px rgba(157, 0, 255, 0.15);
+    }
+
+    /* Ambient Cyber Scanner Line Overlay */
+    .cyber-tile::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, var(--ftp-cyan), var(--ftp-purple), var(--ftp-pink), transparent);
+      box-shadow: 0 0 12px var(--ftp-cyan);
+    }
+
+    /* Cyber Corner Decorators */
+    .cyber-tile::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      width: 30px;
+      height: 30px;
+      background: linear-gradient(135deg, transparent 50%, rgba(0, 240, 255, 0.35) 50%);
+    }
+
+    .cyber-tile-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .cyber-brand {
+      display: flex;
+      align-items: center;
+      gap: 1.1rem;
+    }
+
+    .cyber-app-icon {
+      width: 58px;
+      height: 58px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, rgba(0, 240, 255, 0.15), rgba(157, 0, 255, 0.2));
+      border: 1px solid var(--ftp-cyan);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.75rem;
+      color: var(--ftp-cyan);
+      box-shadow: 0 0 20px var(--ftp-cyan-glow);
+    }
+
+    .cyber-title {
+      font-size: 2rem;
+      font-weight: 900;
+      letter-spacing: 1.5px;
+      color: #fff;
+      text-transform: uppercase;
+      text-shadow: 0 0 15px rgba(0, 240, 255, 0.6);
+    }
+
+    .cyber-title span {
+      background: linear-gradient(135deg, var(--ftp-cyan) 0%, var(--ftp-purple) 60%, var(--ftp-pink) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
 
-    .hud-card {
-      background: rgba(11, 22, 44, 0.72);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border: 1px solid rgba(0, 240, 255, 0.22);
-      position: relative;
-      transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    .cyber-sub {
+      font-size: 0.8rem;
+      letter-spacing: 1.2px;
+      color: var(--ftp-cyan);
+      text-transform: uppercase;
+      margin-top: 2px;
+      font-family: 'JetBrains Mono', monospace;
     }
 
-    .hud-card::before, .hud-card::after {
-      content: '';
-      position: absolute;
+    .cyber-hud-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.76rem;
+      letter-spacing: 1px;
+      padding: 0.4rem 0.9rem;
+      border-radius: 6px;
+      background: rgba(0, 240, 255, 0.08);
+      border: 1px solid var(--ftp-cyan);
+      color: var(--ftp-cyan);
+      box-shadow: 0 0 12px rgba(0, 240, 255, 0.2);
+    }
+
+    .cyber-hud-badge .pulse-node {
       width: 8px;
       height: 8px;
-      pointer-events: none;
-    }
-
-    .hud-card::before {
-      top: -1px;
-      left: -1px;
-      border-top: 2px solid #00F0FF;
-      border-left: 2px solid #00F0FF;
-    }
-
-    .hud-card::after {
-      bottom: -1px;
-      right: -1px;
-      border-bottom: 2px solid #9D00FF;
-      border-right: 2px solid #9D00FF;
-    }
-
-    .hud-card:hover {
-      border-color: rgba(0, 240, 255, 0.45);
-      transform: translateY(-3px);
-      box-shadow: 0 12px 30px -8px rgba(0, 240, 255, 0.3);
-    }
-
-    .hud-button {
-      background: rgba(11, 22, 44, 0.9);
-      border: 1px solid rgba(0, 240, 255, 0.35);
-      position: relative;
-      clip-path: polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 8px) 100%, 0 100%, 0 8px);
-      transition: all 0.25s ease;
-    }
-
-    .hud-button:hover {
       background: #00F0FF;
-      color: #02040A;
-      box-shadow: 0 0 20px rgba(0, 240, 255, 0.5);
+      border-radius: 50%;
+      box-shadow: 0 0 10px #00F0FF;
     }
 
-    .hud-tag {
-      background: rgba(4, 9, 20, 0.85);
-      border: 1px solid rgba(0, 240, 255, 0.25);
+    .cyber-desc {
+      font-family: 'Inter', sans-serif; /* Readable prose inside cyber container */
+      color: #cbd5e1;
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 2rem;
+    }
+
+    .cyber-desc strong {
+      font-family: 'Orbitron', monospace, sans-serif;
+      color: var(--ftp-cyan);
+      font-weight: 700;
+      letter-spacing: 0.5px;
+    }
+
+    /* Cyber Feature Matrix */
+    .cyber-features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.1rem;
+      margin-bottom: 2rem;
+    }
+
+    .cyber-card {
+      background: rgba(4, 9, 20, 0.7);
+      border: 1px solid rgba(0, 240, 255, 0.2);
+      border-radius: 10px;
+      padding: 1.25rem;
+      box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.5);
+      transition: border-color 0.2s;
+    }
+
+    .cyber-card:hover {
+      border-color: rgba(157, 0, 255, 0.6);
+    }
+
+    .cyber-card i {
+      font-size: 1.25rem;
+      color: var(--ftp-cyan);
+      margin-bottom: 0.5rem;
+      display: block;
+    }
+
+    .cyber-card h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      color: #fff;
+      margin-bottom: 0.35rem;
+      text-transform: uppercase;
+    }
+
+    .cyber-card p {
+      font-family: 'Inter', sans-serif;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+
+    /* Cyber Pill Badges */
+    .cyber-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.6rem;
+      margin-bottom: 2rem;
+    }
+
+    .cyber-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.78rem;
+      letter-spacing: 0.5px;
+      color: #94a3b8;
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      padding: 0.3rem 0.75rem;
+      border-radius: 4px;
+    }
+
+    .cyber-tag.highlight {
+      border-color: rgba(157, 0, 255, 0.5);
+      color: #e0aaff;
+      background: rgba(157, 0, 255, 0.1);
+    }
+
+    /* Cyber Action Buttons */
+    .cyber-actions {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(0, 240, 255, 0.2);
+    }
+
+    .cyber-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 0.85rem 1.6rem;
+      border-radius: 8px;
+      text-decoration: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .cyber-btn-cyan {
+      background: linear-gradient(135deg, #00F0FF 0%, #00a2ff 100%);
+      color: #02040a;
+      box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+      border: none;
+    }
+
+    .cyber-btn-cyan:hover {
+      background: #00F0FF;
+      box-shadow: 0 0 30px rgba(0, 240, 255, 0.7);
+      transform: translateY(-2px);
+    }
+
+    .cyber-btn-outline {
+      background: rgba(0, 240, 255, 0.05);
+      border: 1px solid var(--ftp-cyan);
+      color: var(--ftp-cyan);
+      box-shadow: 0 0 10px rgba(0, 240, 255, 0.15);
+    }
+
+    .cyber-btn-outline:hover {
+      background: rgba(0, 240, 255, 0.15);
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 0 20px rgba(0, 240, 255, 0.4);
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 5rem;
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.85rem;
+      border-top: 1px solid var(--card-border);
+      padding-top: 2rem;
     }
   </style>
 </head>
-<body class="cyber-grid relative min-h-screen scanline">
+<body>
 
-  <!-- Ambient Glow Light Sources -->
-  <div class="fixed top-[-160px] left-[-160px] w-[550px] h-[550px] bg-cyber-cyan/15 rounded-full blur-[150px] pointer-events-none"></div>
-  <div class="fixed top-[35%] right-[-180px] w-[650px] h-[650px] bg-cyber-purple/15 rounded-full blur-[170px] pointer-events-none"></div>
-  <div class="fixed bottom-[-100px] left-[25%] w-[500px] h-[500px] bg-cyber-magenta/10 rounded-full blur-[150px] pointer-events-none"></div>
-
-  <!-- App-Styled Top Bar / System Status Header -->
-  <header class="sticky top-0 z-50 backdrop-blur-xl bg-cyber-black/85 border-b border-cyber-cyan/20">
-    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-      
-      <!-- Brand & Version Segment -->
-      <div class="flex items-center space-x-3">
-        <div class="w-11 h-11 rounded-lg bg-gradient-to-tr from-cyber-purple to-cyber-cyan p-[1.5px] flex items-center justify-center overflow-hidden shadow-lg shadow-cyber-cyan/20">
-          <img
-            src="logo.png"
-            alt="Logo"
-            class="w-full h-full rounded-[6px] object-cover"
-            onerror="this.onerror=null; this.parentElement.innerHTML='<div class=\'w-full h-full bg-cyber-black rounded-[6px] flex items-center justify-center font-orbitron font-bold text-cyber-cyan text-sm\'>AN</div>';"
-          />
-        </div>
-        <div class="flex flex-col">
-          <span class="font-orbitron font-extrabold text-xl tracking-wider text-white">AYUSH<span class="text-cyber-cyan">.NARAYAN</span></span>
-          <div class="flex items-center space-x-2 font-mono text-[10px] text-gray-400">
-            <span class="w-1.5 h-1.5 rounded-full bg-cyber-cyan animate-ping"></span>
-            <span class="tracking-widest uppercase">SYSTEM HOST ONLINE</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- Center Navigation -->
-      <nav class="hidden md:flex items-center space-x-8 font-orbitron text-xs tracking-wider text-gray-300">
-        <a href="#overview" class="hover:text-cyber-cyan transition-colors">Overview</a>
-        <a href="#file-explorer" class="hover:text-cyber-cyan transition-colors">Files & Repos</a>
-        <a href="#daemon-monitor" class="hover:text-cyber-cyan transition-colors">Daemon Monitor</a>
-        <a href="#architectures" class="hover:text-cyber-cyan transition-colors">Stack Architecture</a>
+  <!-- Navigation -->
+  <header>
+    <div class="container">
+      <nav>
+        <a href="#" class="logo">ayna<span>.dev</span></a>
+        <ul class="nav-links">
+            <li><a href="#works">My Works</a></li>
+          <li><a href="https://github.com/aynabyayush" target="_blank" rel="noopener"><i class="fa-brands fa-github"></i> GitHub</a></li>
+        </ul>
       </nav>
-
-      <!-- Top Right App Action Button -->
-      <div class="flex items-center space-x-3 font-mono">
-        <div class="hidden sm:flex items-center space-x-2 px-3 py-1.5 rounded bg-cyber-surface/90 border border-cyber-cyan/30 text-xs">
-          <i data-lucide="radio" class="w-3.5 h-3.5 text-cyber-cyan animate-pulse"></i>
-          <span class="text-cyber-cyan">IIT PATNA</span>
-        </div>
-        <a href="https://github.com/aynabyayush" target="_blank" class="px-5 py-2.5 rounded font-orbitron text-xs font-bold uppercase tracking-wider bg-cyber-cyan hover:bg-cyber-cyanDim text-cyber-black transition-all flex items-center space-x-2 cyber-glow-cyan">
-          <i data-lucide="github" class="w-4 h-4"></i>
-          <span>GitHub</span>
-        </a>
-      </div>
     </div>
   </header>
 
-  <!-- Hero Section -->
-  <section id="overview" class="max-w-7xl mx-auto px-6 pt-16 pb-24">
-    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+  <!-- Page Content -->
+  <main class="container">
+    <!-- Hero Section -->
+    <section class="hero" id="about">
+      <div class="status-badge">
+        <span></span> WEB & Android Development
+      </div>
+      <h1>
+        Finding Problems <br />
+        <span>Building Solutions</span>
+      </h1>
+      <p>
+        Hi, I'm Ayush Narayan. Welcome to my portfolio where I showcase my solutions to modern problems and I want to cover all of them by the applications I will build
+      </p>
 
-      <!-- Left Column: HUD Introduction -->
-      <div class="lg:col-span-7 space-y-6">
-        <div class="inline-flex items-center space-x-2.5 px-4 py-1.5 rounded-md bg-cyber-surface/90 border border-cyber-cyan/40 text-cyber-cyan text-xs font-mono">
-          <i data-lucide="terminal" class="w-4 h-4"></i>
-          <span class="font-semibold tracking-wide">SYSTEMS &middot; CONCURRENCY &middot; ALGORITHMS</span>
+
+    </section>
+
+    <!-- My Works Section -->
+    <section id="works">
+      <h2 class="section-title">My Works</h2>
+      <p class="section-subtitle"</p>
+
+      <!-- STRICTLY CYBER THEMED / ORBITRON FONT TILE FOR FTPApp -->
+      <div class="cyber-tile">
+        <div class="cyber-tile-header">
+          <div class="cyber-brand">
+            <div class="cyber-app-icon">
+              <i class="fa-solid fa-server"></i>
+            </div>
+            <div>
+              <div class="cyber-title">FTP<span>App</span></div>
+              <div class="cyber-sub">com.ayush.ftpclient // v1.0</div>
+            </div>
+          </div>
+          <div class="cyber-hud-badge">
+            <span class="pulse-node"></span> REALTIME DAEMON ACTIVE
+          </div>
         </div>
 
-        <h1 class="font-orbitron text-3xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.15] text-white">
-          ENGINEERING <br />
-          <span class="text-gradient">AUTONOMOUS SYSTEMS</span>
-        </h1>
-
-        <p class="text-gray-300 text-base sm:text-lg max-w-xl leading-relaxed">
-          Undergraduate engineer at IIT Patna building multi-threaded network daemons, fault-tolerant background synchronization pipelines, and competitive computational algorithms.
+        <p class="cyber-desc">
+          <strong>FTPApp</strong> is a full-featured Android application integrating an embedded FTP server daemon alongside a remote client explorer. It provides continuous background folder synchronization, real-time transfer telemetry, and an integrated media workstation for files.
         </p>
 
-        <!-- Command Buttons -->
-        <div class="flex flex-wrap gap-4 pt-2 font-orbitron text-xs font-bold uppercase tracking-wider">
-          <a href="#file-explorer" class="px-7 py-3.5 rounded bg-cyber-cyan text-cyber-black flex items-center space-x-2.5 cyber-glow-cyan hover:bg-cyber-cyanDim transition-all">
-            <i data-lucide="hard-drive" class="w-4 h-4"></i>
-            <span>Inspect Explorer</span>
+        <!-- Feature Matrix based on App Components -->
+        <div class="cyber-features">
+          <div class="cyber-card">
+            <i class="fa-solid fa-arrows-rotate"></i>
+            <h4>Realtime Sync Engine</h4>
+            <p>Automated background synchronization supporting custom intervals, wake-lock persistence, and Wi-Fi lock stability.</p>
+          </div>
+
+          <div class="cyber-card">
+            <i class="fa-solid fa-chart-line"></i>
+            <h4>Transfer Monitor</h4>
+            <p>Active transfer queues, session logs, live byte count, and bandwidth speed tracking with overwrite safeguards.</p>
+          </div>
+
+          <div class="cyber-card">
+            <i class="fa-solid fa-microchip"></i>
+            <h4>Cyber Terminal UI</h4>
+            <p>Hologram styling, storage volume switcher, ZIP archive compression, and dedicated cyber input keyboard.</p>
+          </div>
+        </div>
+
+        <!-- Tile Actions -->
+        <div class="cyber-actions">
+          <a href="https://github.com/aynabyayush/ftp-app" target="_blank" rel="noopener" class="cyber-btn cyber-btn-cyan">
+            <i class="fa-brands fa-github"></i> Source Repository
           </a>
-          <a href="https://github.com/aynabyayush/ftp-app" target="_blank" class="px-7 py-3.5 rounded bg-cyber-surface border border-gray-700 hover:border-cyber-purple text-white flex items-center space-x-2.5 transition-all">
-            <i data-lucide="server" class="w-4 h-4 text-cyber-purple"></i>
-            <span>Flagship: FTPApp</span>
+          <a href="https://github.com/aynabyayush/ftp-app/releases" target="_blank" rel="noopener" class="cyber-btn cyber-btn-outline">
+            <i class="fa-solid fa-download"></i> Download APK
           </a>
         </div>
-
-        <!-- Telemetry Stats Strip -->
-        <div class="grid grid-cols-3 gap-4 pt-6 border-t border-gray-800/90 max-w-lg font-mono">
-          <div class="p-3 rounded-lg bg-cyber-surface/40 border border-gray-800">
-            <div class="text-[10px] text-gray-500 uppercase tracking-widest font-orbitron">PROTOCOL</div>
-            <div class="text-xl font-bold text-cyber-cyan mt-1">FTP / MINA</div>
-            <div class="text-[11px] text-gray-400">Core Daemon[cite: 1]</div>
-          </div>
-          <div class="p-3 rounded-lg bg-cyber-surface/40 border border-gray-800">
-            <div class="text-[10px] text-gray-500 uppercase tracking-widest font-orbitron">COMPUTATION</div>
-            <div class="text-xl font-bold text-white mt-1">DSA / CP</div>
-            <div class="text-[11px] text-gray-400">Competitive Core</div>
-          </div>
-          <div class="p-3 rounded-lg bg-cyber-surface/40 border border-gray-800">
-            <div class="text-[10px] text-gray-500 uppercase tracking-widest font-orbitron">SYSTEM</div>
-            <div class="text-xl font-bold text-cyber-purple mt-1">API 29+</div>
-            <div class="text-[11px] text-gray-400">Android Runtime[cite: 1, 3]</div>
-          </div>
-        </div>
       </div>
+    </section>
+  </main>
 
-      <!-- Right Column: Host Daemon Node Widget (Direct App UI replica) -->
-      <div class="lg:col-span-5">
-        <div class="hud-card rounded-2xl p-6 relative overflow-hidden font-mono">
-          <div class="flex items-center justify-between border-b border-gray-800 pb-3 mb-4">
-            <div class="flex items-center space-x-2">
-              <span class="w-3 h-3 rounded-full bg-red-500/80"></span>
-              <span class="w-3 h-3 rounded-full bg-yellow-500/80"></span>
-              <span class="w-3 h-3 rounded-full bg-green-500/80"></span>
-              <span class="font-orbitron text-xs text-gray-300 font-bold ml-2">NODE TELEMETRY CONTROL</span>
-            </div>
-            <span class="px-2 py-0.5 rounded text-[10px] font-bold bg-cyber-cyan/15 text-cyber-cyan border border-cyber-cyan/30 font-orbitron tracking-wider">
-              DAEMON RUNNING[cite: 1, 3]
-            </span>
-          </div>
-
-          <!-- Daemon Details Card -->
-          <div class="space-y-3.5 text-xs">
-            <div class="p-3.5 rounded-xl bg-cyber-black/75 border border-cyber-cyan/20">
-              <div class="text-[10px] text-gray-400 uppercase tracking-wider font-orbitron">Current Active Endpoint</div>
-              <div class="flex items-center justify-between mt-1">
-                <span class="text-cyber-cyan font-bold text-base tracking-wide font-mono">ftp://192.168.1.104:2121</span>
-                <span class="px-2 py-0.5 rounded bg-cyber-surface text-gray-300 text-[10px]">WLAN0</span>
-              </div>
-            </div>
-
-            <div class="grid grid-cols-2 gap-3 text-xs">
-              <div class="p-3 rounded-lg bg-cyber-black/50 border border-gray-800">
-                <div class="text-gray-500">Service Binding</div>
-                <div class="text-white font-semibold mt-0.5">Foreground Loop</div>
-              </div>
-              <div class="p-3 rounded-lg bg-cyber-black/50 border border-gray-800">
-                <div class="text-gray-500">WakeLock State</div>
-                <div class="text-emerald-400 font-semibold mt-0.5">Screen-Off Active[cite: 1]</div>
-              </div>
-            </div>
-
-            <div class="p-3 rounded-lg bg-cyber-black/50 border border-gray-800">
-              <div class="text-gray-500">Mounted Volume</div>
-              <div class="text-gray-300 truncate mt-0.5">/storage/emulated/0/ayush_portfolio[cite: 1, 2]</div>
-            </div>
-
-            <!-- Transfer Status Gauge -->
-            <div class="space-y-2 pt-1">
-              <div class="flex justify-between text-xs text-gray-400">
-                <span class="font-orbitron text-[11px]">Real-Time Sync Stream</span>
-                <span class="text-cyber-cyan font-bold">18.4 MB/s[cite: 1, 3]</span>
-              </div>
-              <div class="w-full bg-gray-800 h-2.5 rounded-full overflow-hidden p-[1px]">
-                <div class="bg-gradient-to-r from-cyber-cyan via-cyan-400 to-cyber-purple h-full w-[78%] rounded-full"></div>
-              </div>
-            </div>
-
-            <div class="flex items-center justify-between pt-2 text-[11px] text-gray-400">
-              <span>Status: <strong class="text-cyber-cyan">Ready for Connection</strong></span>
-              <span class="text-gray-500 font-mono">PID 4182 &bull; API 29+[cite: 1, 3]</span>
-            </div>
-          </div>
-        </div>
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+    <div class="social-links">
+        <a href="https://github.com/aynabyayush" target="_blank" rel="noopener" title="GitHub"><i class="fa-brands fa-github"></i></a>
+        <a href="mailto:ayush.narayan07@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
       </div>
-
-    </div>
-  </section>
-
-  <!-- App-Styled File Explorer Section (Visualizes Repositories & Solutions) -->
-  <section id="file-explorer" class="max-w-7xl mx-auto px-6 py-20 border-t border-gray-900">
-    <div class="max-w-3xl mx-auto text-center mb-14 space-y-3">
-      <h2 class="font-orbitron text-xs uppercase tracking-widest text-cyber-cyan font-bold">DIRECTORY EXPLORER</h2>
-      <h3 class="font-orbitron text-3xl sm:text-4xl font-extrabold text-white">LOCAL & NETWORK REPOSITORIES</h3>
-      <p class="text-gray-400 text-sm sm:text-base">
-        Browse project architecture trees, low-level modules, and computational libraries through an app-like file manager interface[cite: 1, 2].
-      </p>
-    </div>
-
-    <div class="hud-card rounded-2xl overflow-hidden">
-      <!-- File Manager Top Nav / Breadcrumb Bar -->
-      <div class="p-4 bg-cyber-navy/80 border-b border-cyber-cyan/20 flex flex-wrap items-center justify-between gap-4 font-mono text-xs">
-        <div class="flex items-center space-x-2">
-          <i data-lucide="folder" class="w-4 h-4 text-cyber-cyan"></i>
-          <span class="text-gray-500">LOCATION:</span>
-          <span class="text-cyber-cyan font-bold">/storage/emulated/0/ayush_narayan/projects/[cite: 1, 2]</span>
-        </div>
-        <div class="flex items-center space-x-3">
-          <span class="px-2.5 py-1 rounded bg-cyber-surface border border-cyber-cyan/30 text-cyber-cyan text-[11px] font-orbitron">READ/WRITE</span>
-          <span class="text-gray-400 text-[11px]">4 MODULES FOUND</span>
-        </div>
-      </div>
-
-      <!-- File Manager Table / Tile List -->
-      <div class="divide-y divide-gray-800/80 font-mono text-sm">
-        
-        <!-- File Item 1: FTPApp -->
-        <div class="p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 hover:bg-cyber-surface/40 transition-colors">
-          <div class="flex items-center space-x-4">
-            <div class="w-10 h-10 rounded-lg bg-cyber-cyan/10 border border-cyber-cyan/40 flex items-center justify-center text-cyber-cyan">
-              <i data-lucide="server" class="w-5 h-5"></i>
-            </div>
-            <div>
-              <div class="flex items-center space-x-2">
-                <span class="font-orbitron font-bold text-white text-base">ftp-app-daemon[cite: 1, 2]</span>
-                <span class="px-2 py-0.5 rounded text-[10px] bg-cyber-cyan/10 text-cyber-cyan border border-cyber-cyan/30">ANDROID APK[cite: 1, 2]</span>
-              </div>
-              <p class="text-xs text-gray-400 mt-0.5">High-speed FTP server daemon, Apache MINA core, background folder mirror engine[cite: 1].</p>
-            </div>
-          </div>
-          <div class="flex items-center space-x-4 w-full sm:w-auto justify-between sm:justify-end">
-            <div class="text-right text-xs text-gray-400">
-              <div class="text-white font-semibold">Kotlin &bull; MINA[cite: 1, 2]</div>
-              <div class="text-[11px] text-gray-500">v1.0 Production[cite: 1, 3]</div>
-            </div>
-            <a href="https://github.com/aynabyayush/ftp-app" target="_blank" class="px-4 py-2 rounded bg-cyber-surface border border-cyber-cyan/40 hover:bg-cyber-cyan hover:text-cyber-black text-cyber-cyan font-orbitron text-xs font-bold transition-all flex items-center space-x-1.5">
-              <span>EXPLORE</span>
-              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
-            </a>
-          </div>
-        </div>
-
-        <!-- File Item 2: Competitive Programming & DSA -->
-        <div class="p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 hover:bg-cyber-surface/40 transition-colors">
-          <div class="flex items-center space-x-4">
-            <div class="w-10 h-10 rounded-lg bg-cyber-purple/10 border border-cyber-purple/40 flex items-center justify-center text-cyber-purple">
-              <i data-lucide="binary" class="w-5 h-5"></i>
-            </div>
-            <div>
-              <div class="flex items-center space-x-2">
-                <span class="font-orbitron font-bold text-white text-base">algorithms-dsa-vault</span>
-                <span class="px-2 py-0.5 rounded text-[10px] bg-cyber-purple/10 text-cyber-purple border border-cyber-purple/30">C++ / KOTLIN</span>
-              </div>
-              <p class="text-xs text-gray-400 mt-0.5">Optimized data structures, segment trees, flow networks, and dynamic programming modules.</p>
-            </div>
-          </div>
-          <div class="flex items-center space-x-4 w-full sm:w-auto justify-between sm:justify-end">
-            <div class="text-right text-xs text-gray-400">
-              <div class="text-white font-semibold">Graph / DP / Math</div>
-              <div class="text-[11px] text-gray-500">Codeforces Verified</div>
-            </div>
-            <a href="https://github.com/aynabyayush" target="_blank" class="px-4 py-2 rounded bg-cyber-surface border border-cyber-purple/40 hover:bg-cyber-purple hover:text-white text-cyber-purple font-orbitron text-xs font-bold transition-all flex items-center space-x-1.5">
-              <span>EXPLORE</span>
-              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
-            </a>
-          </div>
-        </div>
-
-        <!-- File Item 3: Physics Cup & Mathematical Models -->
-        <div class="p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 hover:bg-cyber-surface/40 transition-colors">
-          <div class="flex items-center space-x-4">
-            <div class="w-10 h-10 rounded-lg bg-blue-500/10 border border-blue-500/40 flex items-center justify-center text-blue-400">
-              <i data-lucide="atom" class="w-5 h-5"></i>
-            </div>
-            <div>
-              <div class="flex items-center space-x-2">
-                <span class="font-orbitron font-bold text-white text-base">physics-cup-mechanics</span>
-                <span class="px-2 py-0.5 rounded text-[10px] bg-blue-500/10 text-blue-400 border border-blue-500/30">ANALYTICAL</span>
-              </div>
-              <p class="text-xs text-gray-400 mt-0.5">Analytical proofs, electrodynamics, advanced mechanics, and mathematical physics solvers.</p>
-            </div>
-          </div>
-          <div class="flex items-center space-x-4 w-full sm:w-auto justify-between sm:justify-end">
-            <div class="text-right text-xs text-gray-400">
-              <div class="text-white font-semibold">Olympiad Physics</div>
-              <div class="text-[11px] text-gray-500">Multi-Year Archive</div>
-            </div>
-            <a href="https://github.com/aynabyayush" target="_blank" class="px-4 py-2 rounded bg-cyber-surface border border-blue-500/40 hover:bg-blue-500 hover:text-white text-blue-400 font-orbitron text-xs font-bold transition-all flex items-center space-x-1.5">
-              <span>EXPLORE</span>
-              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
-            </a>
-          </div>
-        </div>
-
-        <!-- File Item 4: Hardware & Low-Level Embedded -->
-        <div class="p-4 sm:p-5 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 hover:bg-cyber-surface/40 transition-colors">
-          <div class="flex items-center space-x-4">
-            <div class="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/40 flex items-center justify-center text-emerald-400">
-              <i data-lucide="cpu" class="w-5 h-5"></i>
-            </div>
-            <div>
-              <div class="flex items-center space-x-2">
-                <span class="font-orbitron font-bold text-white text-base">eee-circuit-systems</span>
-                <span class="px-2 py-0.5 rounded text-[10px] bg-emerald-500/10 text-emerald-400 border border-emerald-500/30">HARDWARE</span>
-              </div>
-              <p class="text-xs text-gray-400 mt-0.5">Embedded firmware, signal processing, and low-level electrical engineering systems.</p>
-            </div>
-          </div>
-          <div class="flex items-center space-x-4 w-full sm:w-auto justify-between sm:justify-end">
-            <div class="text-right text-xs text-gray-400">
-              <div class="text-white font-semibold">IIT Patna Academic</div>
-              <div class="text-[11px] text-gray-500">Core Engineering</div>
-            </div>
-            <a href="https://github.com/aynabyayush" target="_blank" class="px-4 py-2 rounded bg-cyber-surface border border-emerald-500/40 hover:bg-emerald-500 hover:text-black text-emerald-400 font-orbitron text-xs font-bold transition-all flex items-center space-x-1.5">
-              <span>EXPLORE</span>
-              <i data-lucide="arrow-up-right" class="w-3.5 h-3.5"></i>
-            </a>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- App-Styled Daemon Monitor & Foreground Services Grid -->
-  <section id="daemon-monitor" class="max-w-7xl mx-auto px-6 py-20 border-t border-gray-900">
-    <div class="max-w-3xl mx-auto text-center mb-16 space-y-4">
-      <h2 class="font-orbitron text-xs uppercase tracking-widest text-cyber-cyan font-bold">DAEMON CORE</h2>
-      <h3 class="font-orbitron text-3xl sm:text-4xl font-extrabold text-white">BACKGROUND WORKERS & POWER LOGIC</h3>
-      <p class="text-gray-400 text-sm sm:text-base">
-        Directly leveraging Android system services, network sockets, and power manager wake locks to guarantee continuous socket up-time[cite: 1].
-      </p>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-
-      <!-- Daemon 1: Apache MINA Core -->
-      <div class="hud-card rounded-2xl p-6 space-y-4">
-        <div class="w-12 h-12 rounded-xl bg-cyber-cyan/10 border border-cyber-cyan/30 flex items-center justify-center text-cyber-cyan">
-          <i data-lucide="radio" class="w-6 h-6"></i>
-        </div>
-        <h4 class="font-orbitron text-lg font-bold text-white tracking-wide">Socket Daemon Engine[cite: 1]</h4>
-        <p class="text-sm text-gray-400 leading-relaxed">
-          Powered by Apache FtpServer and Apache MINA NIO[cite: 1]. Handles configurable port ranges, simultaneous connections, and passive transfer ports seamlessly[cite: 1].
-        </p>
-        <div class="pt-2 flex items-center space-x-2 font-mono text-xs text-cyber-cyan">
-          <i data-lucide="check-circle" class="w-4 h-4"></i>
-          <span>Non-Blocking I/O Architecture</span>
-        </div>
-      </div>
-
-      <!-- Daemon 2: Foreground Realtime Sync Loop -->
-      <div class="hud-card rounded-2xl p-6 space-y-4">
-        <div class="w-12 h-12 rounded-xl bg-cyber-purple/10 border border-cyber-purple/30 flex items-center justify-center text-cyber-purple">
-          <i data-lucide="repeat" class="w-6 h-6"></i>
-        </div>
-        <h4 class="font-orbitron text-lg font-bold text-white tracking-wide">Sync Foreground Loop[cite: 1]</h4>
-        <p class="text-sm text-gray-400 leading-relaxed">
-          Autonomous mirroring routines that run scheduled intervals (15m, 1h, or custom triggers) via sticky Android foreground services[cite: 1].
-        </p>
-        <div class="pt-2 flex items-center space-x-2 font-mono text-xs text-cyber-purple">
-          <i data-lucide="check-circle" class="w-4 h-4"></i>
-          <span>Zero User-Intervention Sync[cite: 1]</span>
-        </div>
-      </div>
-
-      <!-- Daemon 3: Screen-Off Lock Handler -->
-      <div class="hud-card rounded-2xl p-6 space-y-4">
-        <div class="w-12 h-12 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
-          <i data-lucide="shield-alert" class="w-6 h-6"></i>
-        </div>
-        <h4 class="font-orbitron text-lg font-bold text-white tracking-wide">WakeLock Power Manager[cite: 1]</h4>
-        <p class="text-sm text-gray-400 leading-relaxed">
-          Enforces CPU partial WakeLocks and Wi-Fi High-Performance Locks so transfers never abort during device idle or screen sleep cycles[cite: 1].
-        </p>
-        <div class="pt-2 flex items-center space-x-2 font-mono text-xs text-emerald-400">
-          <i data-lucide="check-circle" class="w-4 h-4"></i>
-          <span>Battery Optimization Exemption[cite: 1]</span>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Technical Stack & Architectural Specifications -->
-  <section id="architectures" class="max-w-7xl mx-auto px-6 py-20 border-t border-gray-900">
-    <div class="max-w-3xl mx-auto text-center mb-16 space-y-4">
-      <h2 class="font-orbitron text-xs uppercase tracking-widest text-cyber-cyan font-bold">SYSTEM SPECS</h2>
-      <h3 class="font-orbitron text-3xl sm:text-4xl font-extrabold text-white">TECH STACK MATRIX</h3>
-      <p class="text-gray-400 text-sm sm:text-base">
-        Core languages, environments, and architectural toolkits utilized in daily development.
-      </p>
-    </div>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 font-mono">
-      
-      <!-- Box 1 -->
-      <div class="hud-card rounded-xl p-5 space-y-3">
-        <span class="text-xs text-cyber-cyan uppercase tracking-wider font-orbitron font-semibold">LANGUAGES</span>
-        <div class="text-white font-bold text-lg">Kotlin &bull; C++ &bull; Java</div>
-        <p class="text-xs text-gray-400 leading-relaxed">
-          Modern coroutines, memory layout, STL containers, low-overhead networking code.
-        </p>
-      </div>
-
-      <!-- Box 2 -->
-      <div class="hud-card rounded-xl p-5 space-y-3">
-        <span class="text-xs text-cyber-purple uppercase tracking-wider font-orbitron font-semibold">MOBILE PLATFORM</span>
-        <div class="text-white font-bold text-lg">Android SDK / NDK</div>
-        <p class="text-xs text-gray-400 leading-relaxed">
-          Foreground Services, Jetpack, Storage Access Framework, SAF volume mounts[cite: 1].
-        </p>
-      </div>
-
-      <!-- Box 3 -->
-      <div class="hud-card rounded-xl p-5 space-y-3">
-        <span class="text-xs text-blue-400 uppercase tracking-wider font-orbitron font-semibold">NETWORKING</span>
-        <div class="text-white font-bold text-lg">Sockets & Protocols</div>
-        <p class="text-xs text-gray-400 leading-relaxed">
-          FTP/FTPS daemon engines, Apache MINA, TCP/IP flow control, buffer streams[cite: 1].
-        </p>
-      </div>
-
-      <!-- Box 4 -->
-      <div class="hud-card rounded-xl p-5 space-y-3">
-        <span class="text-xs text-emerald-400 uppercase tracking-wider font-orbitron font-semibold">ALGORITHMS</span>
-        <div class="text-white font-bold text-lg">Competitive Theory</div>
-        <p class="text-xs text-gray-400 leading-relaxed">
-          Combinatorics, graph algorithms, dynamic programming, mathematical optimization.
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- CTA & Communication Segment -->
-  <section class="max-w-7xl mx-auto px-6 py-24 text-center border-t border-gray-900">
-    <div class="max-w-3xl mx-auto space-y-6">
-      <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-cyber-surface border border-cyber-cyan/30 text-cyber-cyan font-mono text-xs">
-        <span class="w-2 h-2 rounded-full bg-cyber-cyan animate-pulse"></span>
-        <span>OPEN FOR SYSTEMS COLLABORATION</span>
-      </div>
-
-      <h3 class="font-orbitron text-3xl sm:text-5xl font-black text-white tracking-wide">
-        INITIATE A CONNECTION
-      </h3>
-      <p class="text-gray-400 text-sm sm:text-base max-w-xl mx-auto">
-        Feel free to browse open repositories, inspect project commits, or discuss systems architecture and engineering.
-      </p>
-
-      <div class="flex flex-wrap justify-center gap-4 pt-4 font-orbitron text-xs font-bold tracking-wider uppercase">
-        <a href="https://github.com/aynabyayush" target="_blank" class="px-8 py-4 rounded bg-cyber-cyan text-cyber-black flex items-center space-x-3 cyber-glow-cyan hover:bg-cyber-cyanDim transition-all">
-          <i data-lucide="github" class="w-4 h-4"></i>
-          <span>Explore GitHub Profile</span>
-        </a>
-        <a href="https://github.com/aynabyayush/ftp-app/releases/latest" target="_blank" class="px-8 py-4 rounded bg-cyber-surface border border-gray-700 hover:border-cyber-purple text-white flex items-center space-x-3 transition-all">
-          <i data-lucide="download" class="w-4 h-4 text-cyber-purple"></i>
-          <span>Download FTPApp APK[cite: 1, 3]</span>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Cyber Dashboard Footer -->
-  <footer class="border-t border-gray-900 bg-cyber-black/95 py-10 font-mono text-xs text-gray-500">
-    <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-6">
-      <div class="flex items-center space-x-2">
-        <span class="font-orbitron text-gray-300 font-bold">AYUSH NARAYAN[cite: 1, 3]</span>
-        <span>&bull;</span>
-        <span>IIT PATNA &bull; 2026[cite: 1, 3]</span>
-      </div>
-      <div class="flex items-center space-x-6 text-xs">
-        <a href="https://github.com/aynabyayush" class="hover:text-cyber-cyan transition-colors">GitHub[cite: 1, 3]</a>
-        <a href="https://github.com/aynabyayush/ftp-app" class="hover:text-cyber-cyan transition-colors">FTPApp Repository[cite: 1, 3]</a>
-        <a href="https://github.com/aynabyayush/ftp-app/blob/main/LICENSE" class="hover:text-cyber-cyan transition-colors">MIT License[cite: 1, 3]</a>
-      </div>
+      <p></p>
+      <p>&copy; <span id="year"></span> Ayush Narayan &bull; Hosted on GitHub</p>
     </div>
   </footer>
 
   <script>
-    lucide.createIcons();
+    document.getElementById('year').textContent = new Date().getFullYear();
   </script>
 </body>
 </html>
