@@ -109,69 +109,6 @@
                 </a>
             </div>
         </div>
-
-        <!-- Right Column: Interactive Git Commit Graph Repair Minigame -->
-        <div class="lg:col-span-5 bg-card brutal-border p-6 shadow-2xl relative overflow-hidden">
-            <div class="absolute top-0 right-0 bg-olive px-3 py-1 font-mono text-[10px] text-cream/60 border-l border-b border-olive">
-                interactive_git_repair.sh
-            </div>
-
-            <div class="space-y-4 mb-6 pt-4">
-                <div class="flex items-center justify-between">
-                    <h3 class="font-mono font-bold text-sm text-cream flex items-center space-x-2">
-                        <i class="fa-solid fa-code-merge text-acid"></i>
-                        <span>COMMIT TREE RECOVERY</span>
-                    </h3>
-                    <span id="patchStatus" class="font-mono text-xs text-sienna bg-sienna/10 px-2 py-0.5 border border-sienna/30">STATUS: BROKEN</span>
-                </div>
-                <p class="text-xs font-mono text-cream/60">
-                    Click the corrupted node below to force-checkout and merge back into production.
-                </p>
-            </div>
-
-            <!-- Git Graph Visualization -->
-            <div id="gitGraphContainer" class="bg-surface brutal-border p-4 space-y-3 font-mono text-xs relative">
-                <!-- Node 1: Main -->
-                <div class="flex items-center space-x-3 group cursor-default">
-                    <div class="w-4 h-4 rounded-none bg-acid flex items-center justify-center text-obsidian font-bold text-[10px]">✓</div>
-                    <div class="flex-grow flex items-center justify-between bg-card p-2 brutal-border">
-                        <span class="text-cream">a1b2c3d - [main] stable deployment</span>
-                        <span class="text-acid text-[10px]">HEAD</span>
-                    </div>
-                </div>
-
-                <!-- Branch connector line -->
-                <div class="w-0.5 h-6 bg-olive ml-2"></div>
-
-                <!-- Node 2: Corrupted 404 Node (Interactive) -->
-                <div id="corruptNode" onclick="repairGitNode()" class="flex items-center space-x-3 group cursor-pointer transition-all">
-                    <div id="nodeIcon" class="w-4 h-4 rounded-none bg-sienna flex items-center justify-center text-obsidian font-bold text-[10px] animate-pulse">!</div>
-                    <div id="nodeBox" class="flex-grow flex items-center justify-between bg-sienna/10 p-2 border-2 border-sienna group-hover:bg-sienna/20 transition-colors">
-                        <span id="nodeText" class="text-sienna">404040f - [unknown_route] missing file</span>
-                        <span id="nodeAction" class="text-sienna text-[10px] underline font-bold">[CLICK TO PATCH]</span>
-                    </div>
-                </div>
-
-                <!-- Branch connector line -->
-                <div class="w-0.5 h-6 bg-olive ml-2"></div>
-
-                <!-- Node 3: Future -->
-                <div class="flex items-center space-x-3 opacity-40">
-                    <div class="w-4 h-4 rounded-none bg-olive flex items-center justify-center text-cream font-bold text-[10px]">-</div>
-                    <div class="flex-grow flex items-center justify-between bg-card p-2 brutal-border">
-                        <span class="text-cream/50">9f8e7d6 - [feature/next-gen]</span>
-                        <span class="text-cream/30 text-[10px]">PENDING</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Terminal feedback box -->
-            <div id="terminalFeedback" class="mt-4 bg-obsidian p-3 font-mono text-[11px] text-cream/70 border border-olive min-h-[50px] flex items-center">
-                $ git status --ignored<br>
-                fatal: target path '404.html' is missing in working tree.
-            </div>
-        </div>
-
     </main>
 
     <!-- Footer -->
