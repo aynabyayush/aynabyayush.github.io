@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 // REALITY CORRUPTED</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        obsidian: '#0a0b0a',
+                        surface: '#121412',
+                        card: '#1a1d1a',
+                        cream: '#f2f0ea',
+                        acid: '#c5ff33',
+                        sienna: '#d95338',
+                        olive: '#2d332b'
+                    },
+                    fontFamily: {
+                        display: ['Syne', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                        sans: ['Space Grotesk', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts: Syne, Space Grotesk, JetBrains Mono -->
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            background-color: #0a0b0a;
+            color: #f2f0ea;
+        }
+        .brutal-border {
+            border: 2px solid #2d332b;
+        }
+        .brutal-border-acid {
+            border: 2px solid #c5ff33;
+        }
+        .noise-bg {
+            background-image: radial-gradient(rgba(197, 255, 51, 0.05) 1px, transparent 0);
+            background-size: 24px 24px;
+        }
+        .glow-acid {
+            box-shadow: 4px 4px 0px #c5ff33;
+        }
+        .glow-sienna {
+            box-shadow: 4px 4px 0px #d95338;
+        }
+        .transition-brutal {
+            transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .transition-brutal:hover {
+            transform: translate(-2px, -2px);
+        }
+        .transition-brutal:active {
+            transform: translate(1px, 1px);
+            box-shadow: 1px 1px 0px #c5ff33;
+        }
+    </style>
+</head>
+<body class="min-h-full flex flex-col justify-between font-sans noise-bg selection:bg-acid selection:text-obsidian">
+
+    <!-- Top Editorial Header -->
+    <header class="w-full max-w-7xl mx-auto px-6 py-8 flex items-center justify-between border-b border-olive/60">
+        <div class="flex items-center space-x-4">
+            <div class="w-8 h-8 bg-acid text-obsidian flex items-center justify-center font-mono font-bold text-sm">
+                404
+            </div>
+            <span class="font-mono text-xs tracking-widest text-cream/60 uppercase">SYS_ERR // GITHUB_PAGES_VOID</span>
+        </div>
+        <div class="flex items-center space-x-3">
+        </div>
+    </header>
+
+    <!-- Main Editorial Hero & Interactive Git Graph Area -->
+    <main class="w-full max-w-6xl mx-auto px-6 py-12 lg:py-20 flex-grow grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Left Column: Editorial Typography & Message -->
+        <div class="lg:col-span-7 space-y-8">
+            <div class="inline-flex items-center space-x-2 px-3 py-1 bg-sienna/20 border border-sienna text-sienna font-mono text-xs tracking-wider uppercase">
+                <span class="w-2 h-2 rounded-full bg-sienna animate-ping"></span>
+                <span>HEAD_DETACHED // REF_NOT_FOUND</span>
+            </div>
+
+            <h1 class="font-display text-5xl md:text-7xl font-extrabold tracking-tight leading-none uppercase">
+                Reality <br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-acid via-cream to-sienna">Corrupted.</span>
+            </h1>
+
+            <p class="text-cream/70 text-lg md:text-xl font-sans max-w-xl leading-relaxed">
+                The requested endpoint or commit reference does not exist on <code class="font-mono text-acid bg-surface px-1.5 py-0.5 border border-olive">origin/main</code>. It was either rebased out of existence or never committed to this timeline.
+            </p>
+
+            <div class="flex flex-wrap items-center gap-4 pt-2">
+                <a href="/" class="px-8 py-4 bg-acid text-obsidian font-mono font-bold text-sm glow-acid transition-brutal flex items-center space-x-3">
+                    <i class="fa-solid fa-arrow-left"></i>
+                    <span>CHECKOUT HEAD~1 (HOME)</span>
+                </a>
+                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="px-8 py-4 bg-card brutal-border text-cream font-mono text-sm hover:bg-olive/40 transition-brutal flex items-center space-x-3">
+                    <i class="fa-brands fa-github text-acid"></i>
+                    <span>GOTO REPOSITORY</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Right Column: Interactive Git Commit Graph Repair Minigame -->
+        <div class="lg:col-span-5 bg-card brutal-border p-6 shadow-2xl relative overflow-hidden">
+            <div class="absolute top-0 right-0 bg-olive px-3 py-1 font-mono text-[10px] text-cream/60 border-l border-b border-olive">
+                interactive_git_repair.sh
+            </div>
+
+            <div class="space-y-4 mb-6 pt-4">
+                <div class="flex items-center justify-between">
+                    <h3 class="font-mono font-bold text-sm text-cream flex items-center space-x-2">
+                        <i class="fa-solid fa-code-merge text-acid"></i>
+                        <span>COMMIT TREE RECOVERY</span>
+                    </h3>
+                    <span id="patchStatus" class="font-mono text-xs text-sienna bg-sienna/10 px-2 py-0.5 border border-sienna/30">STATUS: BROKEN</span>
+                </div>
+                <p class="text-xs font-mono text-cream/60">
+                    Click the corrupted node below to force-checkout and merge back into production.
+                </p>
+            </div>
+
+            <!-- Git Graph Visualization -->
+            <div id="gitGraphContainer" class="bg-surface brutal-border p-4 space-y-3 font-mono text-xs relative">
+                <!-- Node 1: Main -->
+                <div class="flex items-center space-x-3 group cursor-default">
+                    <div class="w-4 h-4 rounded-none bg-acid flex items-center justify-center text-obsidian font-bold text-[10px]">✓</div>
+                    <div class="flex-grow flex items-center justify-between bg-card p-2 brutal-border">
+                        <span class="text-cream">a1b2c3d - [main] stable deployment</span>
+                        <span class="text-acid text-[10px]">HEAD</span>
+                    </div>
+                </div>
+
+                <!-- Branch connector line -->
+                <div class="w-0.5 h-6 bg-olive ml-2"></div>
+
+                <!-- Node 2: Corrupted 404 Node (Interactive) -->
+                <div id="corruptNode" onclick="repairGitNode()" class="flex items-center space-x-3 group cursor-pointer transition-all">
+                    <div id="nodeIcon" class="w-4 h-4 rounded-none bg-sienna flex items-center justify-center text-obsidian font-bold text-[10px] animate-pulse">!</div>
+                    <div id="nodeBox" class="flex-grow flex items-center justify-between bg-sienna/10 p-2 border-2 border-sienna group-hover:bg-sienna/20 transition-colors">
+                        <span id="nodeText" class="text-sienna">404040f - [unknown_route] missing file</span>
+                        <span id="nodeAction" class="text-sienna text-[10px] underline font-bold">[CLICK TO PATCH]</span>
+                    </div>
+                </div>
+
+                <!-- Branch connector line -->
+                <div class="w-0.5 h-6 bg-olive ml-2"></div>
+
+                <!-- Node 3: Future -->
+                <div class="flex items-center space-x-3 opacity-40">
+                    <div class="w-4 h-4 rounded-none bg-olive flex items-center justify-center text-cream font-bold text-[10px]">-</div>
+                    <div class="flex-grow flex items-center justify-between bg-card p-2 brutal-border">
+                        <span class="text-cream/50">9f8e7d6 - [feature/next-gen]</span>
+                        <span class="text-cream/30 text-[10px]">PENDING</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Terminal feedback box -->
+            <div id="terminalFeedback" class="mt-4 bg-obsidian p-3 font-mono text-[11px] text-cream/70 border border-olive min-h-[50px] flex items-center">
+                $ git status --ignored<br>
+                fatal: target path '404.html' is missing in working tree.
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="w-full max-w-7xl mx-auto px-6 py-6 border-t border-olive/60 flex flex-col md:flex-row items-center justify-between text-xs font-mono text-cream/50 gap-4">
+        <div>&copy; <span id="currentYear"></span> // BUILT FOR GITHUB PAGES.</div>
+        <div class="flex items-center space-x-6">
+            <span class="flex items-center space-x-2">
+                <span class="w-2 h-2 rounded-full bg-acid"></span>
+                <span>SYSTEM OPERATIONAL</span>
+            </span>
+            <a href="https://github.com/settings/profile" target="_blank" rel="noopener noreferrer" class="hover:text-acid transition-colors">SETTINGS</a>
+        </div>
+    </footer>
+
+    <!-- GitHub Pages Guide Modal -->
+    <div id="guideModal" class="fixed inset-0 z-50 bg-obsidian/90 backdrop-blur-md hidden flex items-center justify-center p-4">
+        <div class="bg-card brutal-border max-w-2xl w-full p-8 shadow-2xl relative space-y-6">
+            <div class="flex items-center justify-between border-b border-olive pb-4">
+                <h3 class="font-mono font-bold text-lg text-cream flex items-center space-x-3">
+                    <i class="fa-solid fa-book-bookmark text-acid"></i>
+                    <span>GH_PAGES_404_DEPLOYMENT_GUIDE.md</span>
+                </h3>
+                <button onclick="toggleGuide(false)" class="w-8 h-8 bg-surface brutal-border flex items-center justify-center text-cream hover:text-acid transition-colors font-mono">
+                    [X]
+                </button>
+            </div>
+
+            <div class="space-y-4 text-sm font-sans text-cream/80">
+                <p>GitHub Pages automatically detects a file named <code class="font-mono text-acid bg-surface px-1.5 py-0.5 border border-olive">404.html</code> at the root of your publishing source branch and serves it whenever a requested path is missing.</p>
+                
+                <div class="space-y-2">
+                    <h4 class="font-mono text-xs uppercase tracking-wider text-cream/60">Step-by-Step Configuration:</h4>
+                    <pre class="bg-surface p-4 brutal-border font-mono text-xs text-acid overflow-x-auto leading-relaxed">
+# 1. Save this file in your root repository folder
+mv download.html 404.html
+
+# 2. Stage and commit changes
+git add 404.html
+git commit -m "feat: add brutalist editorial 404 fallback page"
+
+# 3. Push to your GitHub Pages branch
+git push origin main
+                    </pre>
+                </div>
+            </div>
+
+            <div class="flex justify-end pt-4 border-t border-olive">
+                <button onclick="toggleGuide(false)" class="px-6 py-2.5 bg-acid text-obsidian font-mono font-bold text-xs glow-acid transition-brutal">
+                    CLOSE GUIDE
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script functionality -->
+    <script>
+        // Set current year
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+        // Modal Toggle
+        function toggleGuide(show) {
+            const modal = document.getElementById('guideModal');
+            if (show) {
+                modal.classList.remove('hidden');
+            } else {
+                modal.classList.add('hidden');
+            }
+        }
+
+        // Close modal on backdrop click
+        document.getElementById('guideModal').addEventListener('click', (e) => {
+            if (e.target === document.getElementById('guideModal')) {
+                toggleGuide(false);
+            }
+        });
+
+        // Git Node Repair Minigame Logic
+        let isRepaired = false;
+        function repairGitNode() {
+            if (isRepaired) return;
+            isRepaired = true;
+
+            const nodeIcon = document.getElementById('nodeIcon');
+            const nodeBox = document.getElementById('nodeBox');
+            const nodeText = document.getElementById('nodeText');
+            const nodeAction = document.getElementById('nodeAction');
+            const patchStatus = document.getElementById('patchStatus');
+            const feedback = document.getElementById('terminalFeedback');
+
+            // Transform state to fixed/success
+            nodeIcon.className = "w-4 h-4 rounded-none bg-acid flex items-center justify-center text-obsidian font-bold text-[10px]";
+            nodeIcon.textContent = "✓";
+
+            nodeBox.className = "flex-grow flex items-center justify-between bg-acid/10 p-2 border-2 border-acid";
+            nodeText.className = "text-acid font-bold";
+            nodeText.textContent = "404040f - [patch/fixed] 404 page restored";
+            nodeAction.className = "text-acid text-[10px] font-bold";
+            nodeAction.textContent = "[MERGED]";
+
+            patchStatus.className = "font-mono text-xs text-acid bg-acid/10 px-2 py-0.5 border border-acid/30";
+            patchStatus.textContent = "STATUS: RESOLVED";
+
+            feedback.innerHTML = "$ git checkout main && git merge patch/fixed<br><span class='text-acid'>Success: 404 fallback successfully integrated into deployment pipeline.</span>";
+        }
+    </script>
+</body>
+</html>
