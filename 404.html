@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>404 // REALITY CORRUPTED</title>
+    <title>404 // ERADICATED BY AYNA</title>
+
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -11,166 +12,1018 @@
             theme: {
                 extend: {
                     colors: {
-                        obsidian: '#0a0b0a',
-                        surface: '#121412',
-                        card: '#1a1d1a',
-                        cream: '#f2f0ea',
-                        acid: '#c5ff33',
-                        sienna: '#d95338',
-                        olive: '#2d332b'
+                        void: '#070709',
+                        obsidian: '#0d0d11',
+                        surface: '#15151b',
+                        card: '#1b1b24',
+                        parchment: '#e5dcce',
+                        parchmentDark: '#d4c7b2',
+                        blood: '#880808',
+                        crimson: '#dc2626',
+                        scarlet: '#ef4444',
+                        deathgold: '#d4af37',
+                        ink: '#111317',
+                        ruledLine: '#c2b7a3',
+                        marginLine: '#d67575'
                     },
                     fontFamily: {
-                        display: ['Syne', 'sans-serif'],
+                        death: ['UnifrakturMaguntia', 'Cinzel', 'serif'],
+                        gothic: ['Cinzel', 'serif'],
+                        cursive: ['Caveat', 'cursive'],
                         mono: ['JetBrains Mono', 'monospace'],
                         sans: ['Space Grotesk', 'sans-serif']
+                    },
+                    boxShadow: {
+                        'crimson-glow': '0 0 25px rgba(220, 38, 38, 0.45), 4px 4px 0px #880808',
+                        'book-edge': 'inset 14px 0 25px -10px rgba(0,0,0,0.8), 10px 15px 35px rgba(0,0,0,0.95)',
+                        'leather': '0 20px 45px -10px rgba(0, 0, 0, 0.9), 0 0 0 2px #22222b, inset 0 0 40px rgba(0,0,0,0.7)'
                     }
                 }
             }
         }
     </script>
-    <!-- Google Fonts: Syne, Space Grotesk, JetBrains Mono -->
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;700&family=Syne:wght@700;800&display=swap" rel="stylesheet">
-    <!-- FontAwesome -->
+
+    <!-- Google Fonts: UnifrakturMaguntia, Cinzel, Caveat, JetBrains Mono, Space Grotesk -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Cinzel:wght@600;700;800;900&family=JetBrains+Mono:wght@400;500;700&family=Space+Grotesk:wght@400;500;700&family=UnifrakturMaguntia&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome 6 -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
     <style>
+        /* Base page styling and custom Death Note aesthetics */
         body {
-            background-color: #0a0b0a;
-            color: #f2f0ea;
+            background-color: #070709;
+            color: #f3ede2;
+            overflow-x: hidden;
+            position: relative;
         }
-        .brutal-border {
-            border: 2px solid #2d332b;
+
+        /* Leather texture simulation */
+        .leather-pattern {
+            background-color: #0a0a0e;
+            background-image:
+                radial-gradient(circle at 50% 50%, rgba(20, 20, 28, 0.7) 0%, rgba(7, 7, 9, 0.95) 100%),
+                radial-gradient(rgba(220, 38, 38, 0.04) 1px, transparent 0);
+            background-size: 100% 100%, 28px 28px;
         }
-        .brutal-border-acid {
-            border: 2px solid #c5ff33;
+
+        /* Gothic Title Styling */
+        .death-note-logo {
+            font-family: 'Cinzel', serif;
+            letter-spacing: 0.38em;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.4), 0 0 35px rgba(220, 38, 38, 0.3);
         }
-        .noise-bg {
-            background-image: radial-gradient(rgba(197, 255, 51, 0.05) 1px, transparent 0);
-            background-size: 24px 24px;
+
+        /* L Emblem */
+        .font-l {
+            font-family: 'UnifrakturMaguntia', cursive, serif;
         }
-        .glow-acid {
-            box-shadow: 4px 4px 0px #c5ff33;
+
+        /* Parchment Paper Lines & Texture */
+        .death-note-page {
+            background-color: #e5dcce;
+            background-image:
+                linear-gradient(to right, transparent 52px, #d67575 52px, #d67575 54px, transparent 54px),
+                repeating-linear-gradient(to bottom, transparent 0px, transparent 31px, #c3b8a4 32px);
+            box-shadow: inset 20px 0 30px -10px rgba(0, 0, 0, 0.4), 0 10px 30px rgba(0, 0, 0, 0.7);
         }
-        .glow-sienna {
-            box-shadow: 4px 4px 0px #d95338;
+
+        /* Ink scratch cursive styling */
+        .ink-handwriting {
+            font-family: 'Caveat', cursive;
+            color: #12131a;
+            line-height: 32px;
+            text-shadow: 0.3px 0.3px 0px rgba(0,0,0,0.6);
         }
-        .transition-brutal {
+
+        /* Ryuk Manifestation Dynamics */
+        :root {
+            --ryuk-blur: 8px;
+            --ryuk-opacity: 0.42;
+        }
+
+        @keyframes ryukHover {
+            0%, 100% {
+                transform: translateY(0px) scale(1);
+            }
+            50% {
+                transform: translateY(-18px) scale(1.025);
+            }
+        }
+
+        .ryuk-levitate {
+            animation: ryukHover 6.5s ease-in-out infinite;
+        }
+
+        #ryukImage {
+            filter: blur(var(--ryuk-blur)) contrast(1.2) brightness(0.85) drop-shadow(0 0 45px rgba(220, 38, 38, 0.4));
+            transition: filter 0.25s ease, opacity 0.6s ease;
+        }
+
+        body.shinigami-active #ryukContainer {
+            opacity: var(--ryuk-opacity);
+            pointer-events: none;
+        }
+
+        /* Shinigami Eyes Mode Filter & Lifespan overlays */
+        body.shinigami-active {
+            filter: contrast(110%) brightness(95%);
+        }
+
+        body.shinigami-active::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            box-shadow: inset 0 0 120px rgba(220, 38, 38, 0.45), inset 0 0 40px rgba(185, 28, 28, 0.7);
+            z-index: 9999;
+            animation: pulseVignette 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes pulseVignette {
+            0% { box-shadow: inset 0 0 100px rgba(220, 38, 38, 0.35); }
+            100% { box-shadow: inset 0 0 150px rgba(220, 38, 38, 0.65); }
+        }
+
+        .lifespan-indicator {
+            display: none;
+        }
+
+        body.shinigami-active .lifespan-indicator {
+            display: inline-flex;
+            align-items: center;
+            font-family: 'JetBrains Mono', monospace;
+            color: #ff3333;
+            text-shadow: 0 0 8px #ff0000;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            animation: flicker 2s infinite;
+        }
+
+        @keyframes flicker {
+            0%, 100% { opacity: 0.95; }
+            50% { opacity: 0.75; }
+            75% { opacity: 1; }
+        }
+
+        /* Brutal Gothic Buttons */
+        .btn-gothic-crimson {
+            background-color: #880808;
+            border: 2px solid #dc2626;
+            box-shadow: 4px 4px 0px #000;
             transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        .transition-brutal:hover {
+        .btn-gothic-crimson:hover {
+            background-color: #b91c1c;
             transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px #000, 0 0 18px rgba(220, 38, 38, 0.5);
         }
-        .transition-brutal:active {
-            transform: translate(1px, 1px);
-            box-shadow: 1px 1px 0px #c5ff33;
+        .btn-gothic-crimson:active {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px #000;
+        }
+
+        .btn-gothic-dark {
+            background-color: #15151b;
+            border: 2px solid #2d2d38;
+            box-shadow: 4px 4px 0px #000;
+            transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .btn-gothic-dark:hover {
+            background-color: #20202b;
+            border-color: #dc2626;
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px #000;
+        }
+        .btn-gothic-dark:active {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0px #000;
+        }
+
+        /* Custom scrollbar for notebook */
+        .death-scroll::-webkit-scrollbar {
+            width: 6px;
+        }
+        .death-scroll::-webkit-scrollbar-track {
+            background: rgba(0, 0, 0, 0.1);
+        }
+        .death-scroll::-webkit-scrollbar-thumb {
+            background: #880808;
+        }
+
+        /* Pulse heartbeat animation */
+        @keyframes heartThump {
+            0% { transform: scale(1); }
+            14% { transform: scale(1.22); }
+            28% { transform: scale(1.02); }
+            42% { transform: scale(1.15); }
+            70% { transform: scale(1); }
+        }
+        .animate-heartbeat {
+            animation: heartThump 1.1s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+        }
+
+        /* Feather quill cursor over notebook */
+        .cursor-quill {
+            cursor: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='28' height='28' viewBox='0 0 24 24' fill='none' stroke='%23880808' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'><path d='M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z'></path><line x1='16' y1='8' x2='2' y2='22'></line><line x1='17.5' y1='15' x2='9' y2='15'></line></svg>"), auto;
         }
     </style>
 </head>
-<body class="min-h-full flex flex-col justify-between font-sans noise-bg selection:bg-acid selection:text-obsidian">
+<body class="min-h-full flex flex-col justify-between leather-pattern selection:bg-crimson selection:text-white">
 
-    <!-- Top Editorial Header -->
-    <header class="w-full max-w-7xl mx-auto px-6 py-8 flex items-center justify-between border-b border-olive/60">
-        <div class="flex items-center space-x-4">
-            <div class="w-8 h-8 bg-acid text-obsidian flex items-center justify-center font-mono font-bold text-sm">
-                404
-            </div>
-            <span class="font-mono text-xs tracking-widest text-cream/60 uppercase">SYS_ERR // GITHUB_PAGES_VOID</span>
+    <!-- Ambient / Background floating mist effect -->
+    <div class="fixed inset-0 pointer-events-none opacity-20 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-crimson/30 via-transparent to-transparent"></div>
+
+    <!-- Ryuk Shinigami Manifestation Layer (Appears blurry when Shinigami Eyes are active) -->
+    <div id="ryukContainer" class="fixed inset-0 pointer-events-none z-0 flex items-center justify-center transition-all duration-1000 opacity-0 overflow-hidden" aria-hidden="true">
+        <div class="relative w-full h-full flex items-center justify-center">
+            <!-- Eerie Red Shinigami Backlight -->
+            <div class="absolute w-[450px] sm:w-[650px] h-[750px] rounded-full bg-crimson/15 blur-3xl pointer-events-none animate-pulse"></div>
+            <!-- Looming Ryuk Entity -->
+            <img id="ryukImage"
+                 src="ryuk.png"
+                 alt="Shinigami Ryuk"
+                 class="ryuk-levitate max-h-[86vh] sm:max-h-[92vh] w-auto max-w-[90vw] object-contain select-none transition-all"
+                 onerror="this.onerror=null; this.src='https://placehold.co/600x1000/0d0d11/dc2626?text=RYUK+SHINIGAMI';">
         </div>
+    </div>
+
+    <!-- Top Gothic Header -->
+    <header class="w-full max-w-7xl mx-auto px-6 py-6 flex items-center justify-between border-b border-surface relative z-10">
+        <!-- Brand / Identity -->
+        <div class="flex items-center space-x-4">
+            <!-- L Emblem with Overhead Lifespan -->
+            <div class="relative">
+                <div class="lifespan-indicator absolute -top-5 left-0 text-[10px] whitespace-nowrap">
+                    <span>92847102 // L_LAWLIET</span>
+                </div>
+                <div class="w-10 h-10 bg-obsidian border-2 border-crimson flex items-center justify-center font-l text-2xl text-crimson shadow-[0_0_12px_rgba(220,38,38,0.5)] select-none">
+                    L
+                </div>
+            </div>
+            <div>
+                <div class="flex items-center space-x-2">
+                    <span class="death-note-logo text-sm font-bold tracking-widest text-white uppercase">AYNAbyAyush</span>
+                    <span class="text-[10px] bg-blood/40 text-scarlet px-1.5 py-0.5 border border-blood font-mono uppercase tracking-wider">GitHub 404</span>
+                </div>
+                <div class="flex items-center space-x-2 mt-0.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-crimson animate-ping"></span>
+                    <span class="font-mono text-[10px] text-parchment/60 tracking-wider">REALM: DEVELOPER // OBSERVER: AYNA</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Header Actions: Sound Ambient Toggle & Shinigami Eyes Trade -->
         <div class="flex items-center space-x-3">
+            <!-- Audio Toggle Button -->
+            <button id="audioToggleBtn" onclick="toggleAtmosphereAudio()" class="px-3 py-1.5 bg-obsidian border border-zinc-800 hover:border-crimson text-parchment/80 hover:text-white font-mono text-xs flex items-center space-x-2 transition-all">
+                <i id="audioIcon" class="fa-solid fa-volume-xmark text-zinc-500"></i>
+                <span id="audioStatusText" class="hidden sm:inline">AMBIENCE: MUTED</span>
+            </button>
+
+            <!-- Shinigami Eye Deal Toggle -->
+            <div class="relative">
+                <div class="lifespan-indicator absolute -top-5 right-0 text-[10px] whitespace-nowrap">
+                    <span>54910284 // KIRA_USER</span>
+                </div>
+                <button id="shinigamiEyeBtn" onclick="toggleShinigamiEyes()" class="px-3.5 py-1.5 bg-blood/20 border border-crimson/80 hover:bg-crimson hover:text-white text-scarlet font-mono text-xs font-semibold tracking-wider flex items-center space-x-2 transition-all shadow-[0_0_10px_rgba(220,38,38,0.2)]">
+                    <i class="fa-solid fa-eye text-crimson"></i>
+                    <span>EYE DEAL // TRADE HALF LIFESPAN</span>
+                </button>
+            </div>
         </div>
     </header>
 
-    <!-- Main Editorial Hero & Interactive Git Graph Area -->
-    <main class="w-full max-w-6xl mx-auto px-6 py-12 lg:py-20 flex-grow grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-        
-        <!-- Left Column: Editorial Typography & Message -->
-        <div class="lg:col-span-7 space-y-8">
-            <div class="inline-flex items-center space-x-2 px-3 py-1 bg-sienna/20 border border-sienna text-sienna font-mono text-xs tracking-wider uppercase">
-                <span class="w-2 h-2 rounded-full bg-sienna animate-ping"></span>
-                <span>HEAD_DETACHED // REF_NOT_FOUND</span>
+    <!-- Main Investigation Area: Hero & Interactive Notebook -->
+    <main class="w-full max-w-7xl mx-auto px-6 py-8 lg:py-14 flex-grow grid grid-cols-1 lg:grid-cols-12 gap-10 items-start relative z-10">
+
+        <!-- Left Column: Eradicated Lore & Death Protocol -->
+        <div class="lg:col-span-6 space-y-6">
+
+            <!-- Badge with Shinigami lifespan overlay -->
+            <div class="relative inline-block">
+                <div class="inline-flex items-center space-x-2.5 px-3.5 py-1.5 bg-blood/20 border border-crimson text-scarlet font-mono text-xs tracking-wider uppercase">
+                    <span class="w-2.5 h-2.5 bg-crimson animate-ping rounded-full"></span>
+                    <span>RULE 404 // REF_TERMINATED</span>
+                </div>
+                <!-- Shinigami Eyes lifespan reading -->
+                <div class="lifespan-indicator absolute -top-5 left-1 text-[11px]">
+                    <span>[LIFESPAN: 0000000000] // 0xDEAD404</span>
+                </div>
             </div>
 
-            <h1 class="font-display text-5xl md:text-7xl font-extrabold tracking-tight leading-none uppercase">
-                Reality <br>
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-acid via-cream to-sienna">Corrupted.</span>
-            </h1>
+            <!-- Main Headline -->
+            <div class="space-y-1 relative">
+                <div class="lifespan-indicator absolute -top-6 right-4 text-[11px]">
+                    <span>[TARGET_NAME: HTTP_RESOURCE_THREAD]</span>
+                </div>
+                <h1 class="font-gothic text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-none uppercase text-white">
+                    PAGE <br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-crimson via-red-500 to-parchment drop-shadow-[0_2px_15px_rgba(220,38,38,0.6)]">
+                        ERADICATED.
+                    </span>
+                </h1>
+                <p class="font-gothic text-xs tracking-[0.25em] text-parchment/60 uppercase pt-2">
+                    WRITTEN INTO THE OBSIDIAN PAGES OF FATE
+                </p>
+            </div>
 
-            <p class="text-cream/70 text-lg md:text-xl font-sans max-w-xl leading-relaxed">
-                The requested endpoint or commit reference does not exist on <code class="font-mono text-acid bg-surface px-1.5 py-0.5 border border-olive">origin/main</code>. It was either rebased out of existence or never committed to this timeline.
-            </p>
+            <!-- Death Note Rule Statement -->
+            <div class="p-4 bg-obsidian/80 border-l-4 border-crimson border-y border-r border-zinc-800/80 space-y-3 shadow-lg">
+                <div class="flex items-center justify-between text-xs font-mono text-crimson">
+                    <span class="flex items-center space-x-1.5">
+                        <i class="fa-solid fa-skull"></i>
+                        <span class="font-bold">HOW TO USE IT: RULE IV</span>
+                    </span>
+                    <span class="text-zinc-500">HEART_ATTACK_TIMER: 40s</span>
+                </div>
+                <p class="text-parchment/85 text-sm sm:text-base font-sans leading-relaxed">
+                    The requested URL or commit reference written onto this server thread has ceased to exist in this plane. Within <strong class="text-crimson font-mono">40 seconds</strong> of being inscribed, the endpoint suffered fatal execution failure.
+                </p>
+                <div class="text-xs font-mono text-zinc-400 bg-surface/80 p-2.5 border border-zinc-800">
+                    <span class="text-scarlet">LAST KNOWN TRACE:</span> <span id="currentPathDisplay" class="text-parchment break-all">/unknown-route</span>
+                </div>
+            </div>
 
+            <!-- Primary Task Force Action Buttons -->
             <div class="flex flex-wrap items-center gap-4 pt-2">
-                <a href="/" class="px-8 py-4 bg-acid text-obsidian font-mono font-bold text-sm glow-acid transition-brutal flex items-center space-x-3">
-                    <i class="fa-solid fa-arrow-left"></i>
-                    <span>CHECKOUT HEAD~1 (HOME)</span>
-                </a>
-                <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="px-8 py-4 bg-card brutal-border text-cream font-mono text-sm hover:bg-olive/40 transition-brutal flex items-center space-x-3">
-                    <i class="fa-brands fa-github text-acid"></i>
-                    <span>GOTO REPOSITORY</span>
-                </a>
+                <div class="relative">
+                    <div class="lifespan-indicator absolute -top-4 left-2 text-[10px]">
+                        <span>REF: 49827365</span>
+                    </div>
+                    <a href="/" class="btn-gothic-crimson px-6 py-3.5 text-white font-mono font-bold text-xs sm:text-sm flex items-center space-x-3 uppercase tracking-wider">
+                        <i class="fa-solid fa-arrow-left"></i>
+                        <span>TASK FORCE HQ (HOME)</span>
+                    </a>
+                </div>
+
+                <div class="relative">
+                    <div class="lifespan-indicator absolute -top-4 left-2 text-[10px]">
+                        <span>REF: 99182310</span>
+                    </div>
+                    <a href="https://github.com" target="_blank" rel="noopener noreferrer" class="btn-gothic-dark px-6 py-3.5 text-parchment font-mono text-xs sm:text-sm flex items-center space-x-3 uppercase tracking-wider">
+                        <i class="fa-brands fa-github text-crimson"></i>
+                        <span>REPOSITORY REPO</span>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Ryuk's Forbidden Apple Easter Egg Section -->
+            <div class="pt-4 border-t border-zinc-800/80 flex items-center justify-between">
+                <div class="flex items-center space-x-3">
+                    <!-- Shinigami Apple SVG with interactive bites -->
+                    <div id="appleContainer" onclick="biteShinigamiApple()" class="cursor-pointer group relative p-1 transition-transform active:scale-95 hover:scale-110" title="Feed Ryuk a Juicy Apple">
+                        <svg id="appleSvg" class="w-12 h-12 filter drop-shadow-[0_0_8px_rgba(220,38,38,0.7)] transition-all" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <!-- Apple Stem & Leaf -->
+                            <path d="M50 25 C50 10 65 8 68 5 C62 14 55 20 50 25 Z" fill="#2d4a22"/>
+                            <path d="M50 22 C48 12 40 5 30 10 C35 18 45 20 50 22 Z" fill="#4ade80"/>
+                            <!-- Apple Body (clipped if bitten) -->
+                            <g id="appleBodyGroup">
+                                <path id="appleBody" d="M50 30 C30 18 8 28 12 60 C15 84 38 95 50 90 C62 95 85 84 88 60 C92 28 70 18 50 30 Z" fill="url(#appleGrad)"/>
+                                <circle cx="34" cy="45" r="5" fill="white" fill-opacity="0.25"/>
+                            </g>
+                            <defs>
+                                <radialGradient id="appleGrad" cx="35%" cy="35%" r="65%">
+                                    <stop offset="0%" stop-color="#ff4d4d"/>
+                                    <stop offset="70%" stop-color="#b91c1c"/>
+                                    <stop offset="100%" stop-color="#450a0a"/>
+                                </radialGradient>
+                            </defs>
+                        </svg>
+                        <span class="absolute -top-1 -right-1 flex h-3 w-3">
+                            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-crimson opacity-75"></span>
+                            <span class="relative inline-flex rounded-full h-3 w-3 bg-blood"></span>
+                        </span>
+                    </div>
+
+                    <div>
+                        <div class="text-xs font-mono font-bold text-white flex items-center space-x-1.5">
+                            <span>SHINIGAMI'S TEMPTATION</span>
+                            <span id="biteCounter" class="text-[10px] text-crimson font-mono">(0 bites)</span>
+                        </div>
+                        <p id="ryukWhisper" class="text-xs text-parchment/60 italic font-serif">
+                            "Humans are so... interesting. Click the apple to appease the Death God."
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Shinigami Silhouette Emblem -->
+                <div class="hidden sm:block opacity-30 hover:opacity-80 transition-opacity">
+                    <i class="fa-solid fa-feather-pointed text-3xl text-parchment"></i>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Right Column: The Interactive Death Note Notebook -->
+        <div class="lg:col-span-6 relative">
+
+            <!-- Book Outer Leather Casing & Stitching -->
+            <div class="bg-obsidian border-4 border-[#1c1c24] rounded-lg p-2.5 sm:p-4 shadow-leather relative overflow-hidden">
+
+                <!-- Metallic Gold Corner Guards -->
+                <div class="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-deathgold/70 pointer-events-none"></div>
+                <div class="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-deathgold/70 pointer-events-none"></div>
+                <div class="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-deathgold/70 pointer-events-none"></div>
+                <div class="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-deathgold/70 pointer-events-none"></div>
+
+                <!-- Notebook Header / Spine Badge -->
+                <div class="flex items-center justify-between pb-3 px-2 border-b border-zinc-800 text-xs font-mono">
+                    <div class="flex items-center space-x-2">
+                        <span class="w-2.5 h-2.5 bg-crimson rounded-sm inline-block shadow-[0_0_6px_#dc2626]"></span>
+                        <span class="text-parchment font-death text-base tracking-widest">AYNAbyAyush</span>
+                    </div>
+                    <div id="heartbeatStatus" class="flex items-center space-x-2 text-[11px] text-zinc-400">
+                        <i id="heartIcon" class="fa-solid fa-heart-pulse text-zinc-600"></i>
+                        <span id="timerCountdown">40.00s REMAINING</span>
+                    </div>
+                </div>
+
+                <!-- Lined Parchment Inner Page -->
+                <div class="death-note-page cursor-quill rounded mt-3 p-4 sm:p-6 min-h-[380px] max-h-[460px] overflow-y-auto death-scroll text-ink relative shadow-inner">
+
+                    <!-- Watermark in notebook -->
+                    <div class="absolute inset-0 flex items-center justify-center opacity-[0.06] pointer-events-none select-none">
+                        <span class="font-l text-9xl text-black">L</span>
+                    </div>
+
+                    <!-- Existing Recorded Entries -->
+                    <div id="inscriptionsContainer" class="space-y-1 relative z-10">
+                        <!-- Default Inscribed Entry -->
+                        <div class="ink-handwriting text-xl sm:text-2xl border-b border-black/10 pb-1">
+                            <span class="text-blood font-bold">[404]</span> <span class="line-through decoration-blood decoration-2">https://github.io/missing-resource</span>
+                            <span class="text-sm font-sans text-stone-600 block sm:inline sm:ml-2"># Heart Failure (Timeout)</span>
+                        </div>
+                        <div class="ink-handwriting text-xl sm:text-2xl border-b border-black/10 pb-1">
+                            <span class="text-blood font-bold">[ERR]</span> <span class="line-through decoration-blood decoration-2">origin/main/refs/heads/corrupted</span>
+                            <span class="text-sm font-sans text-stone-600 block sm:inline sm:ml-2"># Severe Segfault in Void</span>
+                        </div>
+                    </div>
+
+                    <!-- Interactive Inscription Form directly on notebook bottom -->
+                    <div class="mt-6 pt-4 border-t-2 border-stone-400/50 relative z-10 bg-parchment/60 backdrop-blur-[1px] p-2.5 rounded">
+                        <div class="text-[11px] font-mono uppercase text-stone-700 font-bold mb-2 flex items-center justify-between">
+                            <span><i class="fa-solid fa-feather mr-1 text-blood"></i> INSCRIBE ANOTHER TARGET</span>
+                            <span class="text-[10px] text-stone-500 font-normal">EXECUTION: 40 SECONDS</span>
+                        </div>
+
+                        <div class="space-y-2">
+                            <div class="flex gap-2">
+                                <input type="text" id="targetInput" placeholder="Enter target path or filename (e.g. /admin, /secret.key)" class="w-full bg-[#f4eee4] border border-stone-400 px-3 py-1.5 text-sm font-mono text-ink focus:outline-none focus:border-blood placeholder:text-stone-400 rounded-sm">
+                            </div>
+
+                            <div class="flex flex-col sm:flex-row gap-2 items-stretch sm:items-center justify-between">
+                                <select id="causeSelect" class="bg-[#f4eee4] border border-stone-400 px-2 py-1.5 text-xs font-mono text-ink focus:outline-none focus:border-blood rounded-sm">
+                                    <option value="Fatal Heart Attack (404)">Cause: Fatal Heart Attack (404)</option>
+                                    <option value="Null Pointer Severance">Cause: Null Pointer Severance</option>
+                                    <option value="Accidental Git rm -rf">Cause: Accidental Git rm -rf</option>
+                                    <option value="Memory Leak Suffocation">Cause: Memory Leak Suffocation</option>
+                                </select>
+
+                                <button onclick="inscribeInDeathNote()" class="px-4 py-1.5 bg-blood text-white font-mono text-xs font-bold hover:bg-crimson active:scale-95 transition-all shadow-sm rounded-sm flex items-center justify-center space-x-1.5">
+                                    <i class="fa-solid fa-pen-nib"></i>
+                                    <span>WRITE IN NOTE</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Feedback notification inside notebook -->
+                        <div id="scribeFeedback" class="mt-2 text-xs font-mono text-blood font-semibold min-h-[16px] transition-opacity duration-300 opacity-0"></div>
+                    </div>
+
+                </div>
+
+                <!-- Notebook Footer Status -->
+                <div class="mt-3 pt-2 px-1 flex items-center justify-between text-[11px] font-mono text-zinc-400">
+                    <div>PAGES: INFINITE // OWNER: <span class="text-white font-bold">AYNA</span></div>
+                    <div class="flex items-center space-x-1">
+                        <span class="w-2 h-2 rounded-full bg-crimson"></span>
+                        <span class="text-scarlet">DEATH CLOCK ARMED</span>
+                    </div>
+                </div>
+
             </div>
         </div>
+
     </main>
 
+    <!-- Floating Shinigami Eyes HUD Control Panel (Appears when Eyes are traded) -->
+    <aside id="shinigamiHud" aria-label="Shinigami Eyes Control Panel" class="fixed bottom-6 left-1/2 -translate-x-1/2 z-40 bg-obsidian/95 border-2 border-crimson px-5 py-3 rounded-md shadow-[0_0_35px_rgba(220,38,38,0.6)] transition-all duration-300 hidden items-center gap-4 text-xs font-mono backdrop-blur-md max-w-[94vw]">
+        <div class="flex items-center space-x-2 text-scarlet font-bold whitespace-nowrap">
+            <span class="w-2.5 h-2.5 rounded-full bg-crimson animate-ping"></span>
+            <span>SHINIGAMI EYES ACTIVE: -50% LIFESPAN</span>
+        </div>
+        <div class="h-4 w-px bg-zinc-700 hidden sm:block"></div>
+        <div class="flex items-center space-x-3 whitespace-nowrap">
+            <label for="focusSlider" class="text-parchment/70 text-[11px] flex items-center gap-1.5">
+                <i class="fa-solid fa-sliders text-crimson"></i>
+                <span class="hidden md:inline">VISION FOCUS:</span>
+            </label>
+            <input type="range" id="focusSlider" min="0" max="16" value="8" step="1" oninput="adjustRyukFocus(this.value)" class="w-24 sm:w-32 accent-crimson cursor-pointer">
+            <span id="focusValueText" class="text-scarlet font-bold text-[11px] min-w-[55px]">8px BLUR</span>
+        </div>
+        <button onclick="toggleShinigamiEyes()" class="px-2.5 py-1 bg-surface border border-zinc-700 hover:border-crimson text-parchment/80 hover:text-white text-[11px] transition-colors" title="Deactivate Shinigami Eyes">
+            [CLOSE EYES]
+        </button>
+    </aside>
+
     <!-- Footer -->
-    <footer class="w-full max-w-7xl mx-auto px-6 py-6 border-t border-olive/60 flex flex-col md:flex-row items-center justify-between text-xs font-mono text-cream/50 gap-4">
-        <div>&copy; <span id="currentYear"></span> // BUILT FOR GITHUB PAGES.</div>
+    <footer class="w-full max-w-7xl mx-auto px-6 py-6 border-t border-surface flex flex-col md:flex-row items-center justify-between text-xs font-mono text-parchment/50 gap-4 relative z-10">
+        <div class="flex items-center space-x-2">
+            <span class="font-l text-base text-crimson">L</span>
+            <span>&copy; <span id="currentYear"></span> // TASK FORCE GITHUB PAGES 404 INVESTIGATION.</span>
+        </div>
         <div class="flex items-center space-x-6">
             <span class="flex items-center space-x-2">
-                <span class="w-2 h-2 rounded-full bg-acid"></span>
-                <span>SYSTEM OPERATIONAL</span>
+                <span class="w-2 h-2 rounded-full bg-crimson shadow-[0_0_8px_#dc2626]"></span>
+                <span class="text-parchment/80">AYNA / L SURVEILLANCE ACTIVE</span>
             </span>
-            <a href="https://github.com/settings/profile" target="_blank" rel="noopener noreferrer" class="hover:text-acid transition-colors">SETTINGS</a>
+            <a href="https://github.com/settings/profile" target="_blank" rel="noopener noreferrer" class="hover:text-crimson transition-colors">TASK FORCE SETTINGS</a>
         </div>
     </footer>
 
-    <!-- GitHub Pages Guide Modal -->
-    <div id="guideModal" class="fixed inset-0 z-50 bg-obsidian/90 backdrop-blur-md hidden flex items-center justify-center p-4">
-        <div class="bg-card brutal-border max-w-2xl w-full p-8 shadow-2xl relative space-y-6">
-            <div class="flex items-center justify-between border-b border-olive pb-4">
-                <h3 class="font-mono font-bold text-lg text-cream flex items-center space-x-3">
-                    <i class="fa-solid fa-book-bookmark text-acid"></i>
-                    <span>GH_PAGES_404_DEPLOYMENT_GUIDE.md</span>
-                </h3>
-                <button onclick="toggleGuide(false)" class="w-8 h-8 bg-surface brutal-border flex items-center justify-center text-cream hover:text-acid transition-colors font-mono">
+    <!-- GitHub Pages 404 Guide Modal (Death Note Rule Insert Style) -->
+    <div id="ruleModal" class="fixed inset-0 z-50 bg-black/90 backdrop-blur-md hidden flex items-center justify-center p-4">
+        <div class="bg-obsidian border-2 border-crimson max-w-2xl w-full p-6 sm:p-8 shadow-[0_0_50px_rgba(220,38,38,0.3)] relative space-y-6 max-h-[90vh] overflow-y-auto">
+
+            <!-- Modal Header -->
+            <div class="flex items-center justify-between border-b border-zinc-800 pb-4">
+                <div class="flex items-center space-x-3">
+                    <span class="w-8 h-8 bg-blood text-white flex items-center justify-center font-death text-xl">D</span>
+                    <div>
+                        <h3 class="font-gothic font-bold text-lg text-white tracking-widest uppercase">HOW TO USE IT: 404.HTML</h3>
+                        <p class="font-mono text-[10px] text-zinc-400">GITHUB_PAGES_VOID_CONFIGURATION // RULE I - III</p>
+                    </div>
+                </div>
+                <button onclick="toggleRuleGuide(false)" class="w-8 h-8 bg-surface border border-zinc-700 flex items-center justify-center text-parchment hover:text-crimson hover:border-crimson transition-colors font-mono">
                     [X]
                 </button>
             </div>
 
-            <div class="space-y-4 text-sm font-sans text-cream/80">
-                <p>GitHub Pages automatically detects a file named <code class="font-mono text-acid bg-surface px-1.5 py-0.5 border border-olive">404.html</code> at the root of your publishing source branch and serves it whenever a requested path is missing.</p>
-                
+            <!-- Rules Content -->
+            <div class="space-y-5 text-sm font-sans text-parchment/85 leading-relaxed">
+                <!-- Rule 1 -->
+                <div class="border-l-2 border-crimson pl-3.5 space-y-1">
+                    <h4 class="font-gothic text-xs uppercase tracking-widest text-crimson font-bold">RULE I</h4>
+                    <p class="text-xs">
+                        GitHub Pages automatically detects a file named <code class="font-mono text-scarlet bg-surface px-1.5 py-0.5 border border-zinc-800">404.html</code> placed in the root directory of your repository. Ensure <code class="font-mono text-scarlet bg-surface px-1.5 py-0.5 border border-zinc-800">ryuk.png</code> is in the same folder so the Shinigami manifests behind your code.
+                    </p>
+                </div>
+
+                <!-- Rule 2 -->
+                <div class="border-l-2 border-crimson pl-3.5 space-y-1">
+                    <h4 class="font-gothic text-xs uppercase tracking-widest text-crimson font-bold">RULE II</h4>
+                    <p class="text-xs">
+                        When a wandering human requests an endpoint or resource that is missing, the server will invoke this Death Note template rather than the standard generic error screen.
+                    </p>
+                </div>
+
+                <!-- Step-by-Step Code Instructions -->
                 <div class="space-y-2">
-                    <h4 class="font-mono text-xs uppercase tracking-wider text-cream/60">Step-by-Step Configuration:</h4>
-                    <pre class="bg-surface p-4 brutal-border font-mono text-xs text-acid overflow-x-auto leading-relaxed">
-# 1. Save this file in your root repository folder
-mv download.html 404.html
+                    <div class="flex items-center justify-between">
+                        <span class="font-mono text-[11px] uppercase tracking-wider text-zinc-400">Terminal Inscription Commands:</span>
+                        <button onclick="copyGitSnippet()" class="text-[11px] font-mono text-scarlet hover:text-white transition-colors">
+                            <i class="fa-regular fa-copy mr-1"></i><span id="copyBtnText">COPY COMMANDS</span>
+                        </button>
+                    </div>
+                    <pre id="gitCommands" class="bg-black/80 p-4 border border-zinc-800 font-mono text-xs text-parchment overflow-x-auto leading-relaxed selection:bg-blood">
+# 1. Place 404.html and ryuk.png in your repository root
+mv index.html 404.html
 
-# 2. Stage and commit changes
-git add 404.html
-git commit -m "feat: add brutalist editorial 404 fallback page"
+# 2. Stage and commit changes to the Investigation Log
+git add 404.html ryuk.png
+git commit -m "feat: inscribe Death Note 404 template with Shinigami Ryuk presence"
 
-# 3. Push to your GitHub Pages branch
+# 3. Push to your GitHub Pages publishing branch
 git push origin main
                     </pre>
                 </div>
             </div>
 
-            <div class="flex justify-end pt-4 border-t border-olive">
-                <button onclick="toggleGuide(false)" class="px-6 py-2.5 bg-acid text-obsidian font-mono font-bold text-xs glow-acid transition-brutal">
-                    CLOSE GUIDE
+            <!-- Modal Footer -->
+            <div class="flex justify-between items-center pt-4 border-t border-zinc-800">
+                <span class="text-[11px] font-mono text-zinc-500">I AM JUSTICE. // DEATH NOTE 404</span>
+                <button onclick="toggleRuleGuide(false)" class="btn-gothic-crimson px-6 py-2.5 text-white font-mono font-bold text-xs uppercase tracking-wider">
+                    CLOSE THE NOTE
                 </button>
             </div>
         </div>
     </div>
 
-    <!-- Script functionality -->
+    <!-- Web Audio API & Interactive Logic -->
     <script>
-        // Set current year
+        // 1. Initial State & DOM bindings
         document.getElementById('currentYear').textContent = new Date().getFullYear();
+        const displayPath = window.location.pathname || '/unknown-dimension';
+        document.getElementById('currentPathDisplay').textContent = displayPath;
+        document.getElementById('targetInput').value = displayPath !== '/' ? displayPath : '/broken-branch/head';
 
-        // Modal Toggle
-        function toggleGuide(show) {
-            const modal = document.getElementById('guideModal');
+        // 2. Synthesized Web Audio Engine (No external sound files required)
+        let audioCtx = null;
+        let isAmbiencePlaying = false;
+        let ambienceOsc1 = null;
+        let ambienceOsc2 = null;
+        let ambienceGain = null;
+
+        function getAudioContext() {
+            if (!audioCtx) {
+                const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+                audioCtx = new AudioContextClass();
+            }
+            if (audioCtx.state === 'suspended') {
+                audioCtx.resume();
+            }
+            return audioCtx;
+        }
+
+        // Realistic Quill Scratch Sound using filtered noise buffer
+        function playQuillScratchSFX() {
+            try {
+                const ctx = getAudioContext();
+                const bufferSize = ctx.sampleRate * 0.18; // 180ms burst
+                const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+                const data = buffer.getChannelData(0);
+
+                for (let i = 0; i < bufferSize; i++) {
+                    // White noise with amplitude modulation to simulate quill friction
+                    data[i] = (Math.random() * 2 - 1) * Math.sin((i / bufferSize) * Math.PI);
+                }
+
+                const noise = ctx.createBufferSource();
+                noise.buffer = buffer;
+
+                // Bandpass filter to emulate scraping paper texture
+                const filter = ctx.createBiquadFilter();
+                filter.type = 'bandpass';
+                filter.frequency.setValueAtTime(2200 + Math.random() * 800, ctx.currentTime);
+                filter.Q.setValueAtTime(3.5, ctx.currentTime);
+
+                const gain = ctx.createGain();
+                gain.gain.setValueAtTime(0.08, ctx.currentTime);
+                gain.gain.exponentialRampToValueAtTime(0.001, ctx.currentTime + 0.17);
+
+                noise.connect(filter);
+                filter.connect(gain);
+                gain.connect(ctx.destination);
+
+                noise.start();
+            } catch (err) {
+                console.warn('Audio not allowed yet:', err);
+            }
+        }
+
+        // Deep Heartbeat Pulse SFX (Thump-Thump)
+        function playHeartbeatSFX() {
+            try {
+                const ctx = getAudioContext();
+                const now = ctx.currentTime;
+
+                // First thump (Lub)
+                createThump(now, 58, 0.28);
+                // Second thump (Dub)
+                createThump(now + 0.22, 48, 0.22);
+
+                function createThump(time, startFreq, volume) {
+                    const osc = ctx.createOscillator();
+                    const gain = ctx.createGain();
+
+                    osc.type = 'sine';
+                    osc.frequency.setValueAtTime(startFreq, time);
+                    osc.frequency.exponentialRampToValueAtTime(28, time + 0.16);
+
+                    gain.gain.setValueAtTime(volume, time);
+                    gain.gain.exponentialRampToValueAtTime(0.001, time + 0.18);
+
+                    osc.connect(gain);
+                    gain.connect(ctx.destination);
+
+                    osc.start(time);
+                    osc.stop(time + 0.2);
+                }
+            } catch (e) {
+                // Ignore audio autoplay restrictions
+            }
+        }
+
+        // Apple Crunch SFX
+        function playAppleBiteSFX() {
+            try {
+                const ctx = getAudioContext();
+                const now = ctx.currentTime;
+                const bufferSize = ctx.sampleRate * 0.15;
+                const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+                const data = buffer.getChannelData(0);
+
+                for (let i = 0; i < bufferSize; i++) {
+                    data[i] = (Math.random() * 2 - 1);
+                }
+
+                const noise = ctx.createBufferSource();
+                noise.buffer = buffer;
+
+                const filter = ctx.createBiquadFilter();
+                filter.type = 'bandpass';
+                filter.frequency.setValueAtTime(1400, now);
+                filter.frequency.exponentialRampToValueAtTime(450, now + 0.14);
+
+                const gain = ctx.createGain();
+                gain.gain.setValueAtTime(0.35, now);
+                gain.gain.exponentialRampToValueAtTime(0.01, now + 0.14);
+
+                noise.connect(filter);
+                filter.connect(gain);
+                gain.connect(ctx.destination);
+
+                noise.start(now);
+            } catch (e) {}
+        }
+
+        // Shinigami Eye Activation Bass Burst
+        function playEyeSurgeSFX() {
+            try {
+                const ctx = getAudioContext();
+                const now = ctx.currentTime;
+
+                // Deep subterranean bass sweep
+                const osc = ctx.createOscillator();
+                const gain = ctx.createGain();
+
+                osc.type = 'sawtooth';
+                osc.frequency.setValueAtTime(130, now);
+                osc.frequency.exponentialRampToValueAtTime(35, now + 0.8);
+
+                const filter = ctx.createBiquadFilter();
+                filter.type = 'lowpass';
+                filter.frequency.setValueAtTime(320, now);
+
+                gain.gain.setValueAtTime(0.25, now);
+                gain.gain.exponentialRampToValueAtTime(0.001, now + 0.8);
+
+                osc.connect(filter);
+                filter.connect(gain);
+                gain.connect(ctx.destination);
+
+                osc.start(now);
+                osc.stop(now + 0.85);
+
+                // High ethereal Shinigami resonance bell
+                const chime = ctx.createOscillator();
+                const chimeGain = ctx.createGain();
+
+                chime.type = 'sine';
+                chime.frequency.setValueAtTime(880, now); // A5
+                chime.frequency.exponentialRampToValueAtTime(440, now + 1.2);
+
+                chimeGain.gain.setValueAtTime(0.12, now);
+                chimeGain.gain.exponentialRampToValueAtTime(0.001, now + 1.2);
+
+                chime.connect(chimeGain);
+                chimeGain.connect(ctx.destination);
+
+                chime.start(now);
+                chime.stop(now + 1.25);
+            } catch (e) {}
+        }
+
+        // Dark Ambient Drone Toggle
+        function toggleAtmosphereAudio() {
+            const ctx = getAudioContext();
+            const btn = document.getElementById('audioToggleBtn');
+            const icon = document.getElementById('audioIcon');
+            const text = document.getElementById('audioStatusText');
+
+            if (!isAmbiencePlaying) {
+                // Start eerie subterranean drone
+                ambienceOsc1 = ctx.createOscillator();
+                ambienceOsc2 = ctx.createOscillator();
+                ambienceGain = ctx.createGain();
+
+                ambienceOsc1.type = 'sine';
+                ambienceOsc1.frequency.setValueAtTime(55, ctx.currentTime); // Low A
+
+                ambienceOsc2.type = 'sine';
+                ambienceOsc2.frequency.setValueAtTime(58.5, ctx.currentTime); // Subtle dissonant beat frequency
+
+                ambienceGain.gain.setValueAtTime(0.01, ctx.currentTime);
+                ambienceGain.gain.exponentialRampToValueAtTime(0.06, ctx.currentTime + 1.5);
+
+                ambienceOsc1.connect(ambienceGain);
+                ambienceOsc2.connect(ambienceGain);
+                ambienceGain.connect(ctx.destination);
+
+                ambienceOsc1.start();
+                ambienceOsc2.start();
+
+                isAmbiencePlaying = true;
+                icon.className = "fa-solid fa-volume-high text-crimson";
+                text.textContent = "AMBIENCE: ACTIVE";
+                btn.classList.add('border-crimson');
+            } else {
+                // Stop drone
+                if (ambienceGain) {
+                    ambienceGain.gain.exponentialRampToValueAtTime(0.0001, ctx.currentTime + 0.5);
+                    setTimeout(() => {
+                        if (ambienceOsc1) ambienceOsc1.stop();
+                        if (ambienceOsc2) ambienceOsc2.stop();
+                    }, 500);
+                }
+                isAmbiencePlaying = false;
+                icon.className = "fa-solid fa-volume-xmark text-zinc-500";
+                text.textContent = "AMBIENCE: MUTED";
+                btn.classList.remove('border-crimson');
+            }
+        }
+
+        // 3. Shinigami Eyes Feature
+        let shinigamiEyesActive = false;
+        function toggleShinigamiEyes() {
+            shinigamiEyesActive = !shinigamiEyesActive;
+            playEyeSurgeSFX();
+
+            const body = document.body;
+            const eyeBtn = document.getElementById('shinigamiEyeBtn');
+            const hud = document.getElementById('shinigamiHud');
+
+            if (shinigamiEyesActive) {
+                body.classList.add('shinigami-active');
+                eyeBtn.classList.add('bg-crimson', 'text-white', 'shadow-[0_0_20px_#dc2626]');
+                eyeBtn.innerHTML = '<i class="fa-solid fa-eye-slash"></i><span>EYES ACTIVE (-50% LIFESPAN)</span>';
+                hud.classList.remove('hidden');
+                hud.classList.add('flex');
+            } else {
+                body.classList.remove('shinigami-active');
+                eyeBtn.classList.remove('bg-crimson', 'text-white', 'shadow-[0_0_20px_#dc2626]');
+                eyeBtn.innerHTML = '<i class="fa-solid fa-eye text-crimson"></i><span>EYE DEAL // TRADE HALF LIFESPAN</span>';
+                hud.classList.add('hidden');
+                hud.classList.remove('flex');
+            }
+        }
+
+        // Adjust Ryuk Focus (Blur slider)
+        function adjustRyukFocus(blurVal) {
+            document.documentElement.style.setProperty('--ryuk-blur', blurVal + 'px');
+            const focusLabel = document.getElementById('focusValueText');
+            if (parseInt(blurVal) === 0) {
+                focusLabel.textContent = '0px (CLEAR)';
+            } else if (parseInt(blurVal) >= 12) {
+                focusLabel.textContent = blurVal + 'px (SHADOW)';
+            } else {
+                focusLabel.textContent = blurVal + 'px BLUR';
+            }
+        }
+
+        // 4. Inscription & 40-Second Countdown Logic
+        let countdownTimer = null;
+        let countdownSeconds = 40.0;
+        let heartbeatInterval = null;
+
+        function startDeathCountdown() {
+            // Reset existing
+            clearInterval(countdownTimer);
+            clearInterval(heartbeatInterval);
+            countdownSeconds = 40.0;
+
+            const timerDisplay = document.getElementById('timerCountdown');
+            const heartIcon = document.getElementById('heartIcon');
+            heartIcon.className = "fa-solid fa-heart-pulse text-crimson animate-heartbeat";
+
+            // Trigger immediate pulse
+            playHeartbeatSFX();
+
+            // Play heartbeat periodically (accelerating as timer expires)
+            heartbeatInterval = setInterval(() => {
+                playHeartbeatSFX();
+            }, 1200);
+
+            countdownTimer = setInterval(() => {
+                countdownSeconds -= 0.1;
+                if (countdownSeconds <= 0) {
+                    clearInterval(countdownTimer);
+                    clearInterval(heartbeatInterval);
+                    countdownSeconds = 0;
+                    timerDisplay.textContent = "00.00s // EXECUTED";
+                    heartIcon.className = "fa-solid fa-skull text-scarlet";
+                    playHeartbeatSFX();
+                } else {
+                    timerDisplay.textContent = countdownSeconds.toFixed(2) + "s REMAINING";
+                }
+            }, 100);
+        }
+
+        function inscribeInDeathNote() {
+            const input = document.getElementById('targetInput');
+            const cause = document.getElementById('causeSelect').value;
+            const feedback = document.getElementById('scribeFeedback');
+            const container = document.getElementById('inscriptionsContainer');
+
+            const targetVal = input.value.trim();
+            if (!targetVal) {
+                feedback.textContent = "Notice: A page or human name cannot be blank.";
+                feedback.style.opacity = '1';
+                setTimeout(() => { feedback.style.opacity = '0'; }, 2500);
+                return;
+            }
+
+            // Scratch sound sequence (3 quick strokes)
+            playQuillScratchSFX();
+            setTimeout(playQuillScratchSFX, 100);
+            setTimeout(playQuillScratchSFX, 220);
+
+            // Create handwritten entry element
+            const entry = document.createElement('div');
+            entry.className = "ink-handwriting text-xl sm:text-2xl border-b border-black/10 pb-1 animate-pulse";
+            entry.innerHTML = `
+                <span class="text-blood font-bold">[RULE 404]</span>
+                <span id="targetStrike" class="transition-all duration-700 font-bold">${escapeHtml(targetVal)}</span>
+                <span class="text-sm font-sans text-stone-600 block sm:inline sm:ml-2"># ${escapeHtml(cause)}</span>
+            `;
+
+            container.appendChild(entry);
+
+            // Strike through target after writing delay (Death Note effect)
+            setTimeout(() => {
+                const targetEl = entry.querySelector('#targetStrike');
+                if (targetEl) {
+                    targetEl.classList.add('line-through', 'decoration-blood', 'decoration-2', 'opacity-80');
+                    entry.classList.remove('animate-pulse');
+                }
+            }, 1500);
+
+            // Display feedback message
+            feedback.textContent = `Target "${targetVal}" inscribed. Heart failure countdown commenced.`;
+            feedback.style.opacity = '1';
+            setTimeout(() => { feedback.style.opacity = '0'; }, 3500);
+
+            // Start the 40-second death timer
+            startDeathCountdown();
+
+            // Clear input
+            input.value = '';
+        }
+
+        // Helper sanitize
+        function escapeHtml(string) {
+            return String(string).replace(/[&<>"'`=\/]/g, function (s) {
+                return ({
+                    '&': '&amp;',
+                    '<': '&lt;',
+                    '>': '&gt;',
+                    '"': '&quot;',
+                    "'": '&#39;',
+                    '/': '&#x2F;',
+                    '`': '&#x60;',
+                    '=': '&#x3D;'
+                })[s];
+            });
+        }
+
+        // 5. Shinigami Apple Easter Egg
+        let appleBites = 0;
+        const ryukQuotes = [
+            "Humans are so... interesting!",
+            "Apples in the Shinigami realm taste like sand. This one is juicy.",
+            "You really thought writing a 404 URL would crash GitHub?",
+            "I'll be watching your repository from the shadows...",
+            "Another bite? You're quite generous for a mortal.",
+            "Careful not to write your own username in that book."
+        ];
+
+        function biteShinigamiApple() {
+            appleBites++;
+            playAppleBiteSFX();
+
+            const counter = document.getElementById('biteCounter');
+            const whisper = document.getElementById('ryukWhisper');
+            const bodyGroup = document.getElementById('appleBodyGroup');
+
+            counter.textContent = `(${appleBites} bite${appleBites > 1 ? 's' : ''})`;
+
+            // Select quote
+            const quoteIndex = (appleBites - 1) % ryukQuotes.length;
+            whisper.textContent = `"${ryukQuotes[quoteIndex]}"`;
+            whisper.classList.add('text-scarlet');
+
+            // Visual bite marks on the SVG apple
+            if (appleBites === 1) {
+                bodyGroup.innerHTML = `
+                    <path d="M50 30 C30 18 8 28 12 60 C15 84 38 95 50 90 C62 95 85 84 88 60 C90 45 78 50 72 45 C66 40 76 30 70 24 C64 19 55 24 50 30 Z" fill="url(#appleGrad)"/>
+                    <circle cx="34" cy="45" r="5" fill="white" fill-opacity="0.25"/>
+                `;
+            } else if (appleBites >= 3) {
+                bodyGroup.innerHTML = `
+                    <!-- Eaten Core -->
+                    <path d="M48 30 C45 38 42 45 46 55 C48 65 44 75 50 90 C56 75 52 65 54 55 C58 45 55 38 52 30 Z" fill="#fef08a"/>
+                    <ellipse cx="50" cy="55" rx="2" ry="4" fill="#3f1a0e"/>
+                `;
+                whisper.textContent = `"Ryuk devoured the apple core entirely. Delicious."`;
+            }
+        }
+
+        // 6. Modal Guide Toggle
+        function toggleRuleGuide(show) {
+            const modal = document.getElementById('ruleModal');
             if (show) {
                 modal.classList.remove('hidden');
             } else {
@@ -179,39 +1032,31 @@ git push origin main
         }
 
         // Close modal on backdrop click
-        document.getElementById('guideModal').addEventListener('click', (e) => {
-            if (e.target === document.getElementById('guideModal')) {
-                toggleGuide(false);
+        document.getElementById('ruleModal').addEventListener('click', (e) => {
+            if (e.target === document.getElementById('ruleModal')) {
+                toggleRuleGuide(false);
             }
         });
 
-        // Git Node Repair Minigame Logic
-        let isRepaired = false;
-        function repairGitNode() {
-            if (isRepaired) return;
-            isRepaired = true;
+        // 7. Clipboard copy for Git commands
+        function copyGitSnippet() {
+            const snippet = document.getElementById('gitCommands').innerText;
+            const copyText = document.getElementById('copyBtnText');
 
-            const nodeIcon = document.getElementById('nodeIcon');
-            const nodeBox = document.getElementById('nodeBox');
-            const nodeText = document.getElementById('nodeText');
-            const nodeAction = document.getElementById('nodeAction');
-            const patchStatus = document.getElementById('patchStatus');
-            const feedback = document.getElementById('terminalFeedback');
-
-            // Transform state to fixed/success
-            nodeIcon.className = "w-4 h-4 rounded-none bg-acid flex items-center justify-center text-obsidian font-bold text-[10px]";
-            nodeIcon.textContent = "✓";
-
-            nodeBox.className = "flex-grow flex items-center justify-between bg-acid/10 p-2 border-2 border-acid";
-            nodeText.className = "text-acid font-bold";
-            nodeText.textContent = "404040f - [patch/fixed] 404 page restored";
-            nodeAction.className = "text-acid text-[10px] font-bold";
-            nodeAction.textContent = "[MERGED]";
-
-            patchStatus.className = "font-mono text-xs text-acid bg-acid/10 px-2 py-0.5 border border-acid/30";
-            patchStatus.textContent = "STATUS: RESOLVED";
-
-            feedback.innerHTML = "$ git checkout main && git merge patch/fixed<br><span class='text-acid'>Success: 404 fallback successfully integrated into deployment pipeline.</span>";
+            const tempInput = document.createElement('textarea');
+            tempInput.value = snippet;
+            document.body.appendChild(tempInput);
+            tempInput.select();
+            try {
+                document.execCommand('copy');
+                copyText.textContent = "COPIED TO CLIPBOARD!";
+                setTimeout(() => {
+                    copyText.textContent = "COPY COMMANDS";
+                }, 2000);
+            } catch (err) {
+                console.error("Copy failed", err);
+            }
+            document.body.removeChild(tempInput);
         }
     </script>
 </body>
